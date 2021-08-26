@@ -40,7 +40,7 @@ create_window1 (void)
   GtkWidget *about1;
   GtkWidget *hbox101;
   GtkWidget *toolbar1;
-  GtkIconSize tmp_toolbar_icon_size;
+
   GtkWidget *toolitem1;
   GtkWidget *Build_button;
   GtkWidget *vbox34;
@@ -1075,7 +1075,6 @@ create_window1 (void)
   gtk_box_pack_start (GTK_BOX (hbox101), toolbar1, TRUE, TRUE, 0);
   gtk_widget_set_size_request (toolbar1, 820, -1);
   gtk_toolbar_set_style (GTK_TOOLBAR (toolbar1), GTK_TOOLBAR_BOTH);
-  tmp_toolbar_icon_size = gtk_toolbar_get_icon_size (GTK_TOOLBAR (toolbar1));
 
   toolitem1 = (GtkWidget*) gtk_tool_item_new ();
   gtk_widget_show (toolitem1);
@@ -9729,7 +9728,15 @@ create_fileselection1 (void)
   GtkWidget *cancel_button1;
   GtkWidget *ok_button1;
 
-  fileselection1 = gtk_file_chooser_dialog_new (_("Load Dialog"), NULL, GTK_FILE_CHOOSER_ACTION_OPEN, NULL);
+  /*
+    Eliminating `not enough arguments` with a solution listed at
+    https://mail.gnome.org/archives/gtk-app-devel-list/2007-February/msg00109.html
+  */
+  fileselection1 = g_object_new (GTK_TYPE_FILE_CHOOSER_DIALOG,
+                                 "title", _("Load Dialog"),
+                                 "action", GTK_FILE_CHOOSER_ACTION_OPEN,
+                                 NULL);
+
   gtk_container_set_border_width (GTK_CONTAINER (fileselection1), 1);
   gtk_window_set_type_hint (GTK_WINDOW (fileselection1), GDK_WINDOW_TYPE_HINT_DIALOG);
 
@@ -9780,7 +9787,11 @@ create_fileselection2 (void)
   GtkWidget *cancel_button2;
   GtkWidget *ok_button2;
 
-  fileselection2 = gtk_file_chooser_dialog_new (_("Save Dialog"), NULL, GTK_FILE_CHOOSER_ACTION_SAVE, NULL);
+  fileselection2 = g_object_new (GTK_TYPE_FILE_CHOOSER_DIALOG,
+                                 "title", _("Save Dialog"),
+                                 "action", GTK_FILE_CHOOSER_ACTION_SAVE,
+                                 NULL);
+
   gtk_container_set_border_width (GTK_CONTAINER (fileselection2), 1);
   gtk_window_set_type_hint (GTK_WINDOW (fileselection2), GDK_WINDOW_TYPE_HINT_DIALOG);
 
@@ -9831,7 +9842,11 @@ create_fileselection3 (void)
   GtkWidget *cancel_button3;
   GtkWidget *ok_button3;
 
-  fileselection3 = gtk_file_chooser_dialog_new (_("Select Database"), NULL, GTK_FILE_CHOOSER_ACTION_OPEN, NULL);
+  fileselection3 = g_object_new (GTK_TYPE_FILE_CHOOSER_DIALOG,
+                                 "title", _("Select Database"),
+                                 "action", GTK_FILE_CHOOSER_ACTION_OPEN,
+                                 NULL);
+
   gtk_container_set_border_width (GTK_CONTAINER (fileselection3), 5);
   gtk_window_set_type_hint (GTK_WINDOW (fileselection3), GDK_WINDOW_TYPE_HINT_DIALOG);
 
