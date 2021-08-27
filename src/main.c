@@ -24,27 +24,14 @@
 
 #include <gtk/gtk.h>
 
-#include "interface.h"
+//#include "interface.h"
 #include "support.h"
 
 int
 main (int argc, char *argv[])
 {
-  GtkWidget *window1;
-/*  GtkWidget *fileselection1;
-  GtkWidget *fileselection2;
-  GtkWidget *sel1_dialog;
-  GtkWidget *interface_dialog;
-  GtkWidget *error_dialog;
-  GtkWidget *udp_payload_dialog;
-  GtkWidget *fileselection3;
-  GtkWidget *about_dialog;
-  GtkWidget *tos_dialod;
-  GtkWidget *fragmentation_dialog; */
-
-  //g_thread_init(NULL);
-  gdk_threads_init();     
-  gdk_threads_enter();
+  GtkBuilder *builder;
+  GtkWidget  *window1;
 
 #ifdef ENABLE_NLS
   bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
@@ -52,11 +39,10 @@ main (int argc, char *argv[])
   textdomain (GETTEXT_PACKAGE);
 #endif
 
-  gtk_set_locale ();
-
-
   gtk_init (&argc, &argv);
 
+  builder = gtk_builder_new();
+  gtk_builder_add_from_file (builder, "../packet_gen.glade", NULL);
   add_pixmap_directory (PKGDATADIR"/pixmaps");
 //  add_pixmap_directory ("pixmaps");
 
@@ -65,7 +51,11 @@ main (int argc, char *argv[])
    * (except popup menus), just so that you see something after building
    * the project. Delete any components that you don't want shown initially.
    */
-  window1 = create_window1 ();
+
+  window1 = GTK_WIDGET(gtk_builder_get_object(builder, "window1"));
+  gtk_builder_connect_signals(builder, NULL);
+  g_object_unref(builder);
+
   gtk_widget_show (window1);
 /*  fileselection1 = create_fileselection1 ();
   gtk_widget_show (fileselection1);

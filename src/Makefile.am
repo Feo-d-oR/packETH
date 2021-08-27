@@ -5,13 +5,12 @@ INCLUDES = \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 	@PACKAGE_CFLAGS@
 
-bin_PROGRAMS = packeth-1.7.2
+bin_PROGRAMS = packeth-2.2.1
 
-packeth_1.7.2_SOURCES = \
+packeth_2.2.1_SOURCES = \
 	main.c \
 	support.c support.h \
-	interface.c interface.h \
 	callbacks.c callbacks.h
 
-packeth_1.7.2_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
+packeth_2.2.1_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 

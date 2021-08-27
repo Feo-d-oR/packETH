@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.63])
-AC_INIT([packETH], [1.7], [jemcek@gmail.com])
+AC_INIT([packETH], [2.2], [jemcek@gmail.com])
 AC_CONFIG_SRCDIR([src/main.c])
 AM_INIT_AUTOMAKE([subdir-objects])
 AC_CONFIG_HEADERS([config.h])
@@ -20,8 +20,9 @@ AC_CHECK_LIB([pthread], [pthread_create])
 AC_CHECK_HEADERS([libintl.h netdb.h netinet/in.h stdlib.h string.h sys/ioctl.h sys/socket.h sys/time.h sys/timeb.h unistd.h])
 
 # We need GTK
-pkg_modules="gtk+-2.0 >= 2.4 glib-2.0 >= 2.4 gthread-2.0 >= 2.4"
-PKG_CHECK_MODULES(DEPS, [$pkg_modules])
+#pkg_modules="gtk3 >= 3.16 glib-2.0 >= 2.4 gthread-2.0 >= 2.4"
+PKG_CHECK_MODULES([GTK3], [gtk+-3.0])
+#PKG_CHECK_MODULES(DEPS, [$pkg_modules])
 
 # Checks for library functions.
 AC_FUNC_ERROR_AT_LINE

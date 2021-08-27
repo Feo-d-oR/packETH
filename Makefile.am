@@ -2,7 +2,6 @@ bin_PROGRAMS=packETH
 packETH_SOURCES= \
 	src/main.c \
 	src/support.c src/support.h \
-	src/interface.c src/interface.h \
 	src/callbacks.c src/callbacks.h \
 	src/function.c src/function.h \
 	src/function_send.c src/function_send.h \
@@ -39,7 +38,7 @@ AM_CPPFLAGS = \
   -Wmissing-prototypes \
   -Wmissing-declarations \
   -Wunused \
-  $(DEPS_CFLAGS)
+  $(GTK3_CFLAGS)
 
 # Include the dev and pixmaps in the distribution (make dist)
 EXTRA_DIST=dev src/pixmaps

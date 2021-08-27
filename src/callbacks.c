@@ -29,7 +29,7 @@
 
 #include "function.h"
 #include "callbacks.h"
-#include "interface.h"
+//#include "interface.h"
 #include "support.h"
 #include "loadpacket.h"
 #include "savepacket.h"
@@ -95,12 +95,12 @@ void
 IP_packet_toggled                      (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *nt2;
-	GtkWidget *nt4;
-	GtkWidget *rb1, *rb2, *rb3,/* *rb4,*/ *rb5;
-	GtkWidget *option_menu, *opt_value;
-	GtkWidget *option_menu2, *opt_value2;
-	GtkWidget *cbt;
+        GtkWidget *nt2;
+        GtkWidget *nt4;
+        GtkWidget *rb1, *rb2, *rb3,/* *rb4,*/ *rb5;
+        GtkWidget *option_menu, *opt_value;
+        GtkWidget *option_menu2, *opt_value2;
+        GtkWidget *cbt;
 	
 	cbt = lookup_widget(GTK_WIDGET(togglebutton), "auto_get_mac_cbt");
 	gtk_widget_set_sensitive (cbt, TRUE);
@@ -150,10 +150,10 @@ void
 on_arppkt_radiobt_toggled              (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *nt2, *nt4;
-	GtkWidget *option_menu, *opt_value;
-	GtkWidget *option_menu2, *opt_value2;
-	GtkWidget *cbt;
+        GtkWidget *nt2, *nt4;
+        GtkWidget *option_menu, *opt_value;
+        GtkWidget *option_menu2, *opt_value2;
+        GtkWidget *cbt;
 	
 	cbt = lookup_widget(GTK_WIDGET(togglebutton), "auto_get_mac_cbt");
 	gtk_widget_set_sensitive (cbt, TRUE);
@@ -185,8 +185,8 @@ void
 on_usedef2_radibt_toggled              (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *nt2, *nt4;
-	GtkWidget *option_menu, *opt_value;
+        GtkWidget *nt2, *nt4;
+        GtkWidget *option_menu, *opt_value;
 	
 	/* for eth II */
 	option_menu = lookup_widget(GTK_WIDGET(togglebutton), "L_optmenu1_bt");
@@ -215,8 +215,8 @@ void
 on_ver_II_bt_toggled                   (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *nt1;
-	GtkWidget *fr7;
+        GtkWidget *nt1;
+        GtkWidget *fr7;
 	nt1 = lookup_widget(GTK_WIDGET(togglebutton), "notebook_ethtype");
 	gtk_notebook_set_page(GTK_NOTEBOOK(nt1), 0);
 	fr7 = lookup_widget(GTK_WIDGET(togglebutton), "frame7");
@@ -229,8 +229,8 @@ void
 on_802_3_bt_toggled                    (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *nt1;
-	GtkWidget *fr7;
+        GtkWidget *nt1;
+        GtkWidget *fr7;
 	nt1 = lookup_widget(GTK_WIDGET(togglebutton), "notebook_ethtype");
 	gtk_notebook_set_page(GTK_NOTEBOOK(nt1), 1);
 	fr7 = lookup_widget(GTK_WIDGET(togglebutton), "frame7");
@@ -243,7 +243,7 @@ void
 on_802_1q_bt_clicked                   (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *fr6;
+        GtkWidget *fr6;
 	fr6 = lookup_widget(GTK_WIDGET(button), "frame6");
 	if (GTK_TOGGLE_BUTTON(button)->active)
 		gtk_widget_set_sensitive(fr6, TRUE);
@@ -256,7 +256,7 @@ void
 on_L_8023_llc_tbt_toggled              (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *l_oui, *l_pid, *lbl_oui, *lbl_pid, *opt;
+        GtkWidget *l_oui, *l_pid, *lbl_oui, *lbl_pid, *opt;
 	l_oui = lookup_widget(GTK_WIDGET(togglebutton), "L_oui");
 	l_pid = lookup_widget(GTK_WIDGET(togglebutton), "L_pid");
 	lbl_oui = lookup_widget(GTK_WIDGET(togglebutton), "label_oui");
@@ -278,7 +278,7 @@ void
 on_L_8023_llcsnap_tbt_toggled          (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *l_oui, *l_pid, *lbl_oui, *lbl_pid, *opt, *menu, *menu_item;
+        GtkWidget *l_oui, *l_pid, *lbl_oui, *lbl_pid, *opt, *menu, *menu_item;
 	gint index;
 
 	l_oui = lookup_widget(GTK_WIDGET(togglebutton), "L_oui");
@@ -342,7 +342,7 @@ on_about1_activate                      (GtkMenuItem     *menuitem,
 
 
 void
-on_window1_destroy                     (GtkObject       *object,
+on_window1_destroy                     (GtkWidget       *object,
                                         gpointer         user_data)
 {
 	gtk_main_quit();
@@ -350,7 +350,7 @@ on_window1_destroy                     (GtkObject       *object,
 
 
 void
-on_fileselection1_destroy              (GtkObject       *object,
+on_fileselection1_destroy              (GtkWidget       *object,
                                         gpointer         user_data)
 {
 	file_menu = NULL;
@@ -365,7 +365,7 @@ void
 on_ok_button1_clicked                  (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *notbk;
+        GtkWidget *notbk;
 	gint page;
 	FILE *file_p;
 	gchar *fname /* , *fname2 */;
@@ -514,7 +514,7 @@ void
 on_ok_button2_clicked                  (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *notbk;
+        GtkWidget *notbk;
 	gint page;
 	gchar *fname;
 	FILE *file_p;
@@ -608,7 +608,7 @@ on_cancel_button2_clicked              (GtkButton       *button,
 
 
 void
-on_fileselection2_destroy              (GtkObject       *object,
+on_fileselection2_destroy              (GtkWidget       *object,
                                         gpointer         user_data)
 {
 	save_file_menu = NULL;
@@ -619,7 +619,7 @@ on_fileselection2_destroy              (GtkObject       *object,
 void
 on_clist1_select_row	( GtkWidget *clist, gint row, gint column, GdkEventButton *event, gpointer data)
 {
-	GtkWidget *en_ip, *en_mac, *en_name;
+        GtkWidget *en_ip, *en_mac, *en_name;
 	gchar *text_ip, *text_mac, *text_name;
 	//gchar *textip, *textmac;
 
@@ -652,7 +652,7 @@ void
 on_sel1_add_bt_clicked                 (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *clist, *en_ip, *en_mac, *en_name, *en_ipv6;
+        GtkWidget *clist, *en_ip, *en_mac, *en_name, *en_ipv6;
 	gchar *en_ip_t, *en_mac_t, *en_name_t, *en_ipv6_t;
 	gchar *text_ip, *text_mac, *text_name, *text_ipv6;
 	gchar *tmp[4];
@@ -734,7 +734,7 @@ void
 on_sel1_delete_bt_clicked              (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *clist;
+        GtkWidget *clist;
 	
 	GtkTreeModel *treestore;
         gchar *path;
@@ -764,7 +764,7 @@ void
 on_sel1_ok_bt_clicked                  (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *clist; // *en_ip, *en_mac;
+        GtkWidget *clist; // *en_ip, *en_mac;
 	gchar *en_ip_t, *en_ipv6_t, *en_mac_t;
 	gchar *text_ip, *text_ipv6, *text_mac, *text_name;
 	gchar temp[100];
@@ -866,7 +866,7 @@ on_sel1_cancel_bt_clicked              (GtkButton       *button,
 
 
 void
-on_sel1_dialog_destroy                 (GtkObject       *object,
+on_sel1_dialog_destroy                 (GtkWidget       *object,
                                         gpointer         user_data)
 {
 	selection1_dialog = NULL;
@@ -1111,7 +1111,7 @@ on_auto_get_mac_cbt_clicked            (GtkButton       *button,
 	char tmp7[20];
 	char tmp8[20];
 
-	GtkWidget *source_mac, *destination_mac, *destination_ip, *ipv4_rdbt;
+        GtkWidget *source_mac, *destination_mac, *destination_ip, *ipv4_rdbt;
 	gchar *destination_ip_t;
 	
 	source_mac = lookup_widget(GTK_WIDGET(button), "L_src_mac");
@@ -1185,7 +1185,7 @@ void
 on_tcp_bt_toggled                      (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *nt4, *en1, *opt1;
+        GtkWidget *nt4, *en1, *opt1;
 	
 	nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry34");
@@ -1203,7 +1203,7 @@ void
 on_udp_bt_toggled                      (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *nt4, *en1, *opt1;
+        GtkWidget *nt4, *en1, *opt1;
 	nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry34");
 	opt1 = lookup_widget(GTK_WIDGET(togglebutton), "optionmenu3");
@@ -1220,7 +1220,7 @@ void
 on_icmp_bt_toggled                     (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *nt4, *en1, *opt1;
+        GtkWidget *nt4, *en1, *opt1;
 	
 	nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry34");
@@ -1239,7 +1239,7 @@ on_igmp_bt_toggled                     (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 
-	GtkWidget *nt4, *en1, *opt1;
+        GtkWidget *nt4, *en1, *opt1;
 	
 	nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry34");
@@ -1256,7 +1256,7 @@ void
 on_ip_user_data_bt_toggled             (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *nt4, *en1, *opt1;
+        GtkWidget *nt4, *en1, *opt1;
 	
 	nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry34");
@@ -1274,7 +1274,7 @@ void
 on_L_optmenu1_bt_clicked               (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *option_menu, *menu, *active_item, *opt_value;
+        GtkWidget *option_menu, *menu, *active_item, *opt_value;
 	gint active_index;
 
 	option_menu = lookup_widget (GTK_WIDGET (button), "L_optmenu1_bt");
@@ -1307,7 +1307,7 @@ void
 on_optionmenu6_clicked               (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *option_menu, *menu, *active_item, *opt_value;
+        GtkWidget *option_menu, *menu, *active_item, *opt_value;
 	gint active_index;
 
 	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu6");
@@ -1341,10 +1341,10 @@ void
 on_IPv6_rdbt_toggled                   (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *nt2;
-	GtkWidget *nt4;
-	GtkWidget *option_menu, *opt_value;
-	GtkWidget *rb1, *rb2, *rb3 /*, *rb4*/;
+        GtkWidget *nt2;
+        GtkWidget *nt4;
+        GtkWidget *option_menu, *opt_value;
+        GtkWidget *rb1, *rb2, *rb3 /*, *rb4*/;
 	
 	//cbt = lookup_widget(GTK_WIDGET(togglebutton), "auto_get_mac_cbt");
 	//gtk_widget_set_sensitive (cbt, TRUE);
@@ -1383,7 +1383,7 @@ void
 on_Build_button_clicked                    (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *nt1;
+        GtkWidget *nt1;
 	
 	nt1 = lookup_widget(GTK_WIDGET(button), "notebook1");
 	gtk_notebook_set_page(GTK_NOTEBOOK(nt1), 0);
@@ -1411,13 +1411,13 @@ void
 on_Gen_button_clicked                    (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *ntbk2, *ntbk4;
-	GtkWidget *nt1;
+        GtkWidget *ntbk2, *ntbk4;
+        GtkWidget *nt1;
         GtkWidget *text_e;
-	GtkWidget *crc_value;
-	GtkWidget *ckbt61, *ckbt51, *ckbt52, *ckbt54, *ckbt55;
-	GtkWidget *ckbt56, *ckbt57, *ckbt60, *ckbt62, *ckbt63, *ckbt64, *ckbt65;
-	GtkWidget *hb1508, *hb1510, *hb1511, *hb1512;
+        GtkWidget *crc_value;
+        GtkWidget *ckbt61, *ckbt51, *ckbt52, *ckbt54, *ckbt55;
+        GtkWidget *ckbt56, *ckbt57, *ckbt60, *ckbt62, *ckbt63, *ckbt64, *ckbt65;
+        GtkWidget *hb1508, *hb1510, *hb1511, *hb1512;
 
 	unsigned long crc32;
 	char str_crc32[9];
@@ -1587,7 +1587,7 @@ void
 on_Gen_s_bt_clicked                    (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *nt1;
+        GtkWidget *nt1;
 	
 	nt1 = lookup_widget(GTK_WIDGET(button), "notebook1");
 	gtk_notebook_set_page(GTK_NOTEBOOK(nt1), 2);
@@ -1615,7 +1615,7 @@ void
 on_Gen_k_bt_clicked                    (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *nt1;
+        GtkWidget *nt1;
 	
 	nt1 = lookup_widget(GTK_WIDGET(button), "notebook1");
 	gtk_notebook_set_page(GTK_NOTEBOOK(nt1), 3);
@@ -1637,7 +1637,7 @@ void
 on_optionmenu3_clicked                 (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *option_menu, *menu, *active_item, *opt_value;
+        GtkWidget *option_menu, *menu, *active_item, *opt_value;
 	gint active_index;
 
 	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu3");
@@ -1750,7 +1750,7 @@ void
 on_optionmenu4_clicked                 (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *option_menu, *menu, *active_item, *opt_value, *ntbk5;
+        GtkWidget *option_menu, *menu, *active_item, *opt_value, *ntbk5;
 	gint active_index;
 
 	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu4");
@@ -1804,7 +1804,7 @@ void
 on_optionmenu5_clicked                 (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *option_menu, *menu, *active_item, *opt_value;
+        GtkWidget *option_menu, *menu, *active_item, *opt_value;
 	gint active_index;
 
 	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu5");
@@ -2162,7 +2162,7 @@ void
 on_Interface_button_clicked                    (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *combo;
+        GtkWidget *combo;
 	GList *glist=NULL;
 
 	struct ifconf       Ifc;
@@ -2241,7 +2241,7 @@ void
 on_button50_clicked                    (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *combo;
+        GtkWidget *combo;
 
 	combo = lookup_widget(GTK_WIDGET (interface_dialog_menu), "combo1");
 
@@ -2263,7 +2263,7 @@ on_button51_clicked                    (GtkButton       *button,
 
 
 void
-on_interface_dialog_destroy            (GtkObject       *object,
+on_interface_dialog_destroy            (GtkWidget       *object,
                                         gpointer         user_data)
 {
 	interface_dialog_menu = NULL;
@@ -2280,7 +2280,7 @@ on_button52_clicked                    (GtkButton       *button,
 
 
 void
-on_error_dialog_destroy                (GtkObject       *object,
+on_error_dialog_destroy                (GtkWidget       *object,
                                         gpointer         user_data)
 {
 	error_dialog_menu = NULL;
@@ -2288,7 +2288,7 @@ on_error_dialog_destroy                (GtkObject       *object,
 
 void error(gchar *error_type)
 {
-	GtkWidget *label;
+        GtkWidget *label;
 	
 	if ( show_error_dialog == 0)
 		return;
@@ -2384,8 +2384,8 @@ void
 on_rtp_apply_button_clicked            (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *freq_entry, *alaw_bt, /**ulaw_bt,*/ *length_entry, /**apply_bt,*/ *payload_entry;
-	GtkWidget *menu, *menu_item, *amp;
+        GtkWidget *freq_entry, *alaw_bt, /**ulaw_bt,*/ *length_entry, /**apply_bt,*/ *payload_entry;
+        GtkWidget *menu, *menu_item, *amp;
 	gint amp_index;
 	gchar *freq_entry_t, *length_entry_t;
 	int length, frequency;
@@ -2452,7 +2452,7 @@ on_rtp_apply_button_clicked            (GtkButton       *button,
 
 
 void
-on_udp_payload_dialog_destroy          (GtkObject       *object,
+on_udp_payload_dialog_destroy          (GtkWidget       *object,
                                         gpointer         user_data)
 {
 	udp_payload_dialog = NULL;	
@@ -2474,10 +2474,10 @@ on_rtp_ok_bt_clicked                   (GtkButton       *button,
 {
 	char tmp[31000], tmp2[31000];
 	int ij = 0, i, j;
- 	GtkWidget *version, *csrc_nr, *payload_type, *seq_nr, *timestamp, *ssrc, *csrc, *extension;
-	GtkWidget *padding_true, *extension_true, *marker_true;
-	//GtkWidget *padding_false, *extension_false, *marker_false;
-	GtkWidget *rtp_payload;
+        GtkWidget *version, *csrc_nr, *payload_type, *seq_nr, *timestamp, *ssrc, *csrc, *extension;
+        GtkWidget *padding_true, *extension_true, *marker_true;
+        //GtkWidget *padding_false, *extension_false, *marker_false;
+        GtkWidget *rtp_payload;
 	gchar *vers_t, *csrc_nr_t, *payload_type_t, *seq_nr_t, *timestamp_t, *ssrc_t;
 	gchar *csrc_t, *extension_t, *rtp_payload_t;
 	int sum, intversion, intpadding, intmarker, intextension, intcsrc, inttype;
@@ -2747,7 +2747,7 @@ void
 on_button61_clicked                    (GtkButton       *button,
                                         gpointer         user_data)
 {
-	//GtkWidget *toolbar, *stopbt/*, *notebk*/;
+        //GtkWidget *toolbar, *stopbt/*, *notebk*/;
 
 	//toolbar = lookup_widget(GTK_WIDGET (button), "toolbar1");
         //stopbt = lookup_widget(GTK_WIDGET (button), "button61");
@@ -3031,7 +3031,7 @@ on_cancel_button3_clicked              (GtkButton       *button,
 
 
 void
-on_fileselection3_destroy              (GtkObject       *object,
+on_fileselection3_destroy              (GtkWidget       *object,
                                         gpointer         user_data)
 {
 	database_file_menu = NULL;
@@ -3041,7 +3041,7 @@ on_fileselection3_destroy              (GtkObject       *object,
 
 
 void
-on_about_dialog_destroy                (GtkObject       *object,
+on_about_dialog_destroy                (GtkWidget       *object,
                                         gpointer         user_data)
 {
 	about_dialog_menu = NULL;
@@ -3059,7 +3059,7 @@ on_button75_clicked                    (GtkButton       *button,
 
 
 void
-on_tos_dialod_destroy                  (GtkObject       *object,
+on_tos_dialod_destroy                  (GtkWidget       *object,
                                         gpointer         user_data)
 {
 	tos_dialog_menu = NULL;
@@ -3071,7 +3071,7 @@ void
 on_radiobutton38_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *fr1, *fr2;
+        GtkWidget *fr1, *fr2;
 
 	fr1 = lookup_widget(GTK_WIDGET(togglebutton), "frame42");
 	fr2 = lookup_widget(GTK_WIDGET(togglebutton), "frame43");
@@ -3085,7 +3085,7 @@ void
 on_radiobutton39_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *fr1, *fr2;
+        GtkWidget *fr1, *fr2;
 
 	fr1 = lookup_widget(GTK_WIDGET(togglebutton), "frame42");
 	fr2 = lookup_widget(GTK_WIDGET(togglebutton), "frame43");
@@ -3175,7 +3175,7 @@ on_entry160_changed                    (GtkEditable     *editable,
 {
 
 	/*
-	GtkWidget *en5, *en6, *text_e;
+        GtkWidget *en5, *en6, *text_e;
 	gchar *en5_t, *en6_t;
 	int length, i, j, m, value, yvalue;
 	char tmp[31000];
@@ -3234,7 +3234,7 @@ on_entry162_changed                    (GtkEditable     *editable,
                                         gpointer         user_data)
 {
 	/*
-	GtkWidget *en5, *en6, *text_e;
+        GtkWidget *en5, *en6, *text_e;
 	gchar *en5_t, *en6_t;
 	int length, i, j, m, value, xvalue;
 	char tmp[31000];
@@ -3290,9 +3290,9 @@ void
 on_optionmenu14_clicked                (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *option_menu, *menu, *active_item;
+        GtkWidget *option_menu, *menu, *active_item;
 	gint active_index;
-	GtkWidget *en;
+        GtkWidget *en;
 
 	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu14");
 	en = lookup_widget (GTK_WIDGET (button), "entry161");
@@ -3313,9 +3313,9 @@ void
 on_optionmenu15_clicked                (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *option_menu, *menu, *active_item;
+        GtkWidget *option_menu, *menu, *active_item;
 	gint active_index;
-	GtkWidget *en;
+        GtkWidget *en;
 
 	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu15");
 	en = lookup_widget (GTK_WIDGET (button), "entry163");
@@ -3389,7 +3389,7 @@ on_button80_clicked                    (GtkButton       *button,
 
 
 void
-on_fragmentation_dialog_destroy        (GtkObject       *object,
+on_fragmentation_dialog_destroy        (GtkWidget       *object,
                                         gpointer         user_data)
 {
 	fragment_dialog_menu = NULL;
@@ -3401,7 +3401,7 @@ void
 on_Reset_button_clicked                (GtkButton       *button,
                                          gpointer         user_data)
 { 
-	GtkWidget *notbk;
+        GtkWidget *notbk;
 	gint page;
 	FILE *file_p;
 
@@ -3457,7 +3457,7 @@ void
 on_button62_clicked                    (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *notbk;
+        GtkWidget *notbk;
 	gint page;
 	FILE *file_p;
 
@@ -3518,7 +3518,7 @@ void
 on_checkbutton40_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *txt6;
+        GtkWidget *txt6;
 	txt6 = lookup_widget(GTK_WIDGET(togglebutton), "entry165");
 	if (GTK_TOGGLE_BUTTON(togglebutton)->active)
 		gtk_widget_set_sensitive(txt6, TRUE);
@@ -3531,7 +3531,7 @@ void
 on_igmpmessage_type_clicked            (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *option_menu, *menu, *active_item, *opt_value, *ntbk5;
+        GtkWidget *option_menu, *menu, *active_item, *opt_value, *ntbk5;
 	gint active_index;
 
 	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu20");
@@ -3704,7 +3704,7 @@ void
 on_Gen_p_clicked                       (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *nt1;
+        GtkWidget *nt1;
 	
 	nt1 = lookup_widget(GTK_WIDGET(button), "notebook1");
 	gtk_notebook_set_page(GTK_NOTEBOOK(nt1), 3);
@@ -3770,8 +3770,8 @@ on_button87_clicked                    (GtkButton       *button,
                                         gpointer         user_data)
 {
 
-	GtkWidget *en1;
-	GtkWidget *rb1, *rb2, *rb3, *rb4 /*,*rb5*/;
+        GtkWidget *en1;
+        GtkWidget *rb1, *rb2, *rb3, *rb4 /*,*rb5*/;
 	FILE *file_p;
         gchar *mbps_t;
 	double bw[10];
@@ -4037,7 +4037,7 @@ void
 on_radiobutton61_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 	int i;
 	char ime[10];
 
@@ -4084,7 +4084,7 @@ void
 on_radiobutton62_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 	int i;
 	char ime[10];
 
@@ -4133,7 +4133,7 @@ void
 on_radiobutton67_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *nt4, *en1;
+        GtkWidget *nt4, *en1;
         nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry199");
         gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 0);
@@ -4145,7 +4145,7 @@ void
 on_radiobutton68_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *nt4, *en1;
+        GtkWidget *nt4, *en1;
         nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
         gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 1);
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry199");
@@ -4158,7 +4158,7 @@ void
 on_radiobutton69_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *nt4, *en1;
+        GtkWidget *nt4, *en1;
         nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
         gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 5);
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry199");
@@ -4171,7 +4171,7 @@ void
 on_radiobutton71_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *nt4, *en1;
+        GtkWidget *nt4, *en1;
         nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
         gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 3);
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry199");
@@ -4200,7 +4200,7 @@ void
 on_radiobutton72_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry151");
        	gtk_widget_set_sensitive(en1, TRUE);
@@ -4215,7 +4215,7 @@ void
 on_radiobutton73_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry204");
        	gtk_widget_set_sensitive(en1, TRUE);
@@ -4230,7 +4230,7 @@ void
 on_radiobutton79_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry204");
        	gtk_widget_set_sensitive(en1, FALSE);
@@ -4247,7 +4247,7 @@ void
 on_entry185_changed                    (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(editable), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4258,7 +4258,7 @@ void
 on_entry186_changed                    (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(editable), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4270,7 +4270,7 @@ void
 on_entry187_changed                    (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(editable), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4282,7 +4282,7 @@ void
 on_entry188_changed                    (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(editable), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4294,7 +4294,7 @@ void
 on_entry189_changed                    (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(editable), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4306,7 +4306,7 @@ void
 on_entry190_changed                    (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(editable), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4318,7 +4318,7 @@ void
 on_entry191_changed                    (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(editable), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4330,7 +4330,7 @@ void
 on_entry192_changed                    (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(editable), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4342,7 +4342,7 @@ void
 on_entry193_changed                    (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(editable), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4354,7 +4354,7 @@ void
 on_entry194_changed                    (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(editable), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4366,7 +4366,7 @@ void
 on_radiobutton76_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4381,7 +4381,7 @@ void
 on_radiobutton77_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4396,7 +4396,7 @@ void
 on_radiobutton74_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4411,7 +4411,7 @@ void
 on_radiobutton75_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4426,7 +4426,7 @@ void
 on_radiobutton78_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4441,7 +4441,7 @@ void
 on_0_activate                          (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "0");
 
@@ -4452,7 +4452,7 @@ void
 on_cs1_activate                        (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "8");
 
@@ -4463,7 +4463,7 @@ void
 on_cs2_activate                        (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "16");
 
@@ -4474,7 +4474,7 @@ void
 on_cs3_activate                        (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "24");
 
@@ -4485,7 +4485,7 @@ void
 on_cs4_activate                        (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "32");
 
@@ -4496,7 +4496,7 @@ void
 on_cs5_activate                        (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "40");
 
@@ -4507,7 +4507,7 @@ void
 on_cs6_activate                        (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "48");
 
@@ -4518,7 +4518,7 @@ void
 on_cs7_activate                        (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "56");
 
@@ -4529,7 +4529,7 @@ void
 on_af11_activate                       (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "10");
 
@@ -4540,7 +4540,7 @@ void
 on_af12_activate                       (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "12");
 
@@ -4551,7 +4551,7 @@ void
 on_af13_activate                       (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "14");
 
@@ -4562,7 +4562,7 @@ void
 on_af21_activate                       (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "18");
 
@@ -4573,7 +4573,7 @@ void
 on_a22_activate                        (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "20");
 
@@ -4584,7 +4584,7 @@ void
 on_af23_activate                       (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "22");
 
@@ -4595,7 +4595,7 @@ void
 on_af31_activate                       (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "26");
 
@@ -4606,7 +4606,7 @@ void
 on_af32_activate                       (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "28");
 
@@ -4617,7 +4617,7 @@ void
 on_af33_activate                       (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "30");
 
@@ -4628,7 +4628,7 @@ void
 on_af41_activate                       (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "34");
 
@@ -4639,7 +4639,7 @@ void
 on_af42_activate                       (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "36");
 
@@ -4650,7 +4650,7 @@ void
 on_af43_activate                       (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "38");
 
@@ -4661,7 +4661,7 @@ void
 on_ef1_activate                        (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(menuitem), "entry154");
 	gtk_entry_set_text(GTK_ENTRY(en1), "46");
 
@@ -4870,9 +4870,9 @@ void
 on_optionmenu23_clicked                (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *option_menu, *menu, *active_item;
+        GtkWidget *option_menu, *menu, *active_item;
 	gint active_index;
-	GtkWidget *mask, *hbox1, *hbox2;
+        GtkWidget *mask, *hbox1, *hbox2;
 
 	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu23");
 	hbox1 = lookup_widget (GTK_WIDGET (button), "hbox117");
@@ -4945,7 +4945,7 @@ void
 on_checkbutton25_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4956,7 +4956,7 @@ void
 on_checkbutton26_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4968,7 +4968,7 @@ void
 on_checkbutton27_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4980,7 +4980,7 @@ void
 on_checkbutton28_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -4992,7 +4992,7 @@ void
 on_checkbutton29_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -5004,7 +5004,7 @@ void
 on_checkbutton30_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -5016,7 +5016,7 @@ void
 on_checkbutton31_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -5028,7 +5028,7 @@ void
 on_checkbutton32_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -5040,7 +5040,7 @@ void
 on_checkbutton33_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -5052,7 +5052,7 @@ void
 on_checkbutton34_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-	GtkWidget *en1;
+        GtkWidget *en1;
 
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "button87");
 	on_button87_clicked(GTK_BUTTON(en1), user_data);
@@ -5067,7 +5067,7 @@ void
 on_radiobutton89_clicked               (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *en1, *en2, *txt1, *txt2;
+        GtkWidget *en1, *en2, *txt1, *txt2;
         en1 = lookup_widget(GTK_WIDGET(button), "entry109");
         en2 = lookup_widget(GTK_WIDGET(button), "entry222");
         txt1 = lookup_widget(GTK_WIDGET(button), "label409");
@@ -5083,7 +5083,7 @@ void
 on_radiobutton90_clicked               (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *en1, *en2, *txt1, *txt2;
+        GtkWidget *en1, *en2, *txt1, *txt2;
         en1 = lookup_widget(GTK_WIDGET(button), "entry109");
         en2 = lookup_widget(GTK_WIDGET(button), "entry222");
         txt1 = lookup_widget(GTK_WIDGET(button), "label409");
@@ -5099,7 +5099,7 @@ void
 on_radiobutton91_clicked               (GtkButton       *button,
                                         gpointer         user_data)
 {
-	GtkWidget *en1, *en2, *txt1, *txt2;
+        GtkWidget *en1, *en2, *txt1, *txt2;
         en1 = lookup_widget(GTK_WIDGET(button), "entry109");
         en2 = lookup_widget(GTK_WIDGET(button), "entry222");
         txt1 = lookup_widget(GTK_WIDGET(button), "label409");
