@@ -108,18 +108,18 @@ IP_packet_toggled                      (GtkToggleButton *togglebutton,
 	/* eth II */
 	option_menu = lookup_widget(GTK_WIDGET(togglebutton), "L_optmenu1_bt");
 	opt_value = lookup_widget(GTK_WIDGET(togglebutton), "L_ethtype");
-	gtk_option_menu_set_history (GTK_OPTION_MENU (option_menu), 0);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (option_menu), 0);
 	gtk_entry_set_text(GTK_ENTRY(opt_value), "0800");
 
 	/* eth 802.3 */
 	option_menu2 = lookup_widget(GTK_WIDGET(togglebutton), "optionmenu6");
 	opt_value2 = lookup_widget(GTK_WIDGET(togglebutton), "L_pid");
-	gtk_option_menu_set_history (GTK_OPTION_MENU (option_menu2), 0);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (option_menu2), 0);
 	gtk_entry_set_text(GTK_ENTRY(opt_value2), "0800");
 
 	/* open ipv4 page */
 	nt2 = lookup_widget(GTK_WIDGET(togglebutton), "notebook2");
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt2), 0);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt2), 0);
 
 	/* what is next page */
 	rb1 = lookup_widget(GTK_WIDGET(togglebutton), "tcp_bt");
@@ -132,16 +132,16 @@ IP_packet_toggled                      (GtkToggleButton *togglebutton,
 	gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
 	gtk_editable_set_editable(GTK_EDITABLE(opt_value2), FALSE);
 
-	if (GTK_TOGGLE_BUTTON(rb1)->active) 
-		gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 1);
-	else if (GTK_TOGGLE_BUTTON(rb2)->active) 
-		gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 0);
-	else if (GTK_TOGGLE_BUTTON(rb3)->active) 
-		gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 2);
-	else if (GTK_TOGGLE_BUTTON(rb5)->active) 
-		gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 4);
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(rb1)) )
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 1);
+    else if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(rb2)) )
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 0);
+    else if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(rb3)) )
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 2);
+    else if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(rb5)) )
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 4);
 	else 
-		gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 3);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 3);
 
 }
 
@@ -161,20 +161,20 @@ on_arppkt_radiobt_toggled              (GtkToggleButton *togglebutton,
 	/* for eth II */
 	option_menu = lookup_widget(GTK_WIDGET(togglebutton), "L_optmenu1_bt");
 	opt_value = lookup_widget(GTK_WIDGET(togglebutton), "L_ethtype");
-	gtk_option_menu_set_history (GTK_OPTION_MENU (option_menu), 2);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (option_menu), 2);
 	gtk_entry_set_text(GTK_ENTRY(opt_value), "0806");
 
 	/* for eth 802.3 */
 	option_menu2 = lookup_widget(GTK_WIDGET(togglebutton), "optionmenu6");
 	opt_value2 = lookup_widget(GTK_WIDGET(togglebutton), "L_pid");
-	gtk_option_menu_set_history (GTK_OPTION_MENU (option_menu2), 2);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (option_menu2), 2);
 	gtk_entry_set_text(GTK_ENTRY(opt_value2), "0806");
 
 	/* open arp notebook page and empty notebook page for 4 layer */
 	nt2 = lookup_widget(GTK_WIDGET(togglebutton), "notebook2");
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt2), 3);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt2), 3);
 	nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 6);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 6);
 
 	gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
 	gtk_editable_set_editable(GTK_EDITABLE(opt_value2), FALSE);
@@ -190,23 +190,23 @@ on_usedef2_radibt_toggled              (GtkToggleButton *togglebutton,
 	
 	/* for eth II */
 	option_menu = lookup_widget(GTK_WIDGET(togglebutton), "L_optmenu1_bt");
-	gtk_option_menu_set_history (GTK_OPTION_MENU (option_menu), 3);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (option_menu), 3);
 	opt_value = lookup_widget(GTK_WIDGET(togglebutton), "L_ethtype");
 	gtk_editable_set_editable(GTK_EDITABLE(opt_value), TRUE);
 	gtk_entry_set_text(GTK_ENTRY(opt_value), "");
 
 	/* for eth 802.3 */
 	option_menu = lookup_widget(GTK_WIDGET(togglebutton), "optionmenu6");
-	gtk_option_menu_set_history (GTK_OPTION_MENU (option_menu), 3);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (option_menu), 3);
 	opt_value = lookup_widget(GTK_WIDGET(togglebutton), "L_pid");
 	gtk_editable_set_editable(GTK_EDITABLE(opt_value), TRUE);
 	gtk_entry_set_text(GTK_ENTRY(opt_value), "");
 
 	/* set the correct notebooks */
 	nt2 = lookup_widget(GTK_WIDGET(togglebutton), "notebook2");
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt2), 2);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt2), 2);
 	nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 6);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 6);
 
 }
 
@@ -218,7 +218,7 @@ on_ver_II_bt_toggled                   (GtkToggleButton *togglebutton,
         GtkWidget *nt1;
         GtkWidget *fr7;
 	nt1 = lookup_widget(GTK_WIDGET(togglebutton), "notebook_ethtype");
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt1), 0);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt1), 0);
 	fr7 = lookup_widget(GTK_WIDGET(togglebutton), "frame7");
 	gtk_widget_set_sensitive(fr7, FALSE);
 
@@ -232,7 +232,7 @@ on_802_3_bt_toggled                    (GtkToggleButton *togglebutton,
         GtkWidget *nt1;
         GtkWidget *fr7;
 	nt1 = lookup_widget(GTK_WIDGET(togglebutton), "notebook_ethtype");
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt1), 1);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt1), 1);
 	fr7 = lookup_widget(GTK_WIDGET(togglebutton), "frame7");
 	gtk_widget_set_sensitive(fr7, TRUE);
 
@@ -245,7 +245,7 @@ on_802_1q_bt_clicked                   (GtkButton       *button,
 {
         GtkWidget *fr6;
 	fr6 = lookup_widget(GTK_WIDGET(button), "frame6");
-	if (GTK_TOGGLE_BUTTON(button)->active)
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)) )
 		gtk_widget_set_sensitive(fr6, TRUE);
 	else
 		gtk_widget_set_sensitive(fr6, FALSE);
@@ -278,7 +278,7 @@ void
 on_L_8023_llcsnap_tbt_toggled          (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-        GtkWidget *l_oui, *l_pid, *lbl_oui, *lbl_pid, *opt, *menu, *menu_item;
+    GtkWidget *l_oui, *l_pid, *lbl_oui, *lbl_pid, *opt;
 	gint index;
 
 	l_oui = lookup_widget(GTK_WIDGET(togglebutton), "L_oui");
@@ -292,9 +292,8 @@ on_L_8023_llcsnap_tbt_toggled          (GtkToggleButton *togglebutton,
 	gtk_widget_set_sensitive(lbl_oui, TRUE);
 	gtk_widget_set_sensitive(lbl_pid, TRUE);
 	gtk_entry_set_text(GTK_ENTRY(l_oui), "000000");
-	menu = GTK_OPTION_MENU(opt)->menu;
-        menu_item = gtk_menu_get_active (GTK_MENU (menu));
-        index = g_list_index (GTK_MENU_SHELL (menu)->children, menu_item);
+    index = gtk_combo_box_get_active (GTK_COMBO_BOX(opt));
+    //    index = g_list_index (GTK_MENU_SHELL, gtk_menu_get_children(menu), menu_item);
 	switch (index) {
 		case 1: {
 			gtk_entry_set_text(GTK_ENTRY(l_pid), "86DD");
@@ -331,8 +330,8 @@ on_about1_activate                      (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
 	if (about_dialog_menu != NULL) {
-		gdk_window_show(about_dialog_menu->window);
-		gdk_window_raise(about_dialog_menu->window);
+        gdk_window_show( gtk_widget_get_window(about_dialog_menu) );
+        gdk_window_raise( gtk_widget_get_window(about_dialog_menu) );
 		return;
 	}
 
@@ -476,8 +475,8 @@ on_Load_button_clicked                 (GtkButton       *button,
 	statusbar_text(button, "");
 
 	if (file_menu != NULL) {
-		gdk_window_show(file_menu->window);
-		gdk_window_raise(file_menu->window);
+        gdk_window_show( gtk_widget_get_window(file_menu) );
+        gdk_window_raise( gtk_widget_get_window(file_menu) );
 		return;
 	}
 
@@ -496,8 +495,8 @@ on_Save_button_clicked                 (GtkButton       *button,
 	statusbar_text(button, "");
 
 	if (save_file_menu != NULL) {
-		gdk_window_show(save_file_menu->window);
-		gdk_window_raise(save_file_menu->window);
+        gdk_window_show( gtk_widget_get_window(save_file_menu) );
+        gdk_window_raise( gtk_widget_get_window(save_file_menu) );
 		return;
 	}
 
@@ -547,7 +546,7 @@ on_ok_button2_clicked                  (GtkButton       *button,
 		/* YYY ok, this is not yet implemented */
 		/* you could also add possibility to save even with this button on??? */
         	//bt1 = lookup_widget(GTK_WIDGET(btx), "auto_get_mac_cbt");
-	        //if (GTK_TOGGLE_BUTTON(bt1)->active) {
+            //if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(bt1)) ) {
         	        //printf("Error: you can't save in a packet if auto get link layer is on!\n");
         	//        error("Error: you can't save in a packet if auto get link layer is on!");
         	//        return;
@@ -912,8 +911,8 @@ selection_dialog_show			(GtkButton	*button,
 
 	/* if there is a dialog already open, reopen it */
 	if (selection1_dialog != NULL){
-		gdk_window_show(selection1_dialog->window);
-		gdk_window_raise(selection1_dialog->window);
+        gdk_window_show( gtk_widget_get_window(selection1_dialog) );
+        gdk_window_raise( gtk_widget_get_window(selection1_dialog) );
 		return;
 	}
 	/* if we can't open file then we raise an error dialog. user has to change the 
@@ -1120,7 +1119,7 @@ on_auto_get_mac_cbt_clicked            (GtkButton       *button,
 	destination_ip = lookup_widget(GTK_WIDGET(button), "entry37");
 	destination_ip_t = (char *)gtk_entry_get_text(GTK_ENTRY(destination_ip));
 
-	if ( (GTK_TOGGLE_BUTTON(ipv4_rdbt)->active) == 0) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ipv4_rdbt)) == 0) {
 		error("Auto mode works only for IPv4!");
 		return;
 	}
@@ -1191,8 +1190,8 @@ on_tcp_bt_toggled                      (GtkToggleButton *togglebutton,
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry34");
 	opt1 = lookup_widget(GTK_WIDGET(togglebutton), "optionmenu3");
 	
-	gtk_option_menu_set_history (GTK_OPTION_MENU (opt1), 3);
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 1);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (opt1), 3);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 1);
 	gtk_entry_set_text(GTK_ENTRY(en1), "6");
 	gtk_editable_set_editable(GTK_EDITABLE(en1), FALSE);
 
@@ -1208,8 +1207,8 @@ on_udp_bt_toggled                      (GtkToggleButton *togglebutton,
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry34");
 	opt1 = lookup_widget(GTK_WIDGET(togglebutton), "optionmenu3");
 	
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 0);
-	gtk_option_menu_set_history (GTK_OPTION_MENU (opt1), 4);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 0);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (opt1), 4);
 	gtk_entry_set_text(GTK_ENTRY(en1), "17");
 	gtk_editable_set_editable(GTK_EDITABLE(en1), FALSE);
 
@@ -1226,8 +1225,8 @@ on_icmp_bt_toggled                     (GtkToggleButton *togglebutton,
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry34");
 	opt1 = lookup_widget(GTK_WIDGET(togglebutton), "optionmenu3");
 	
-	gtk_option_menu_set_history (GTK_OPTION_MENU (opt1), 1);
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 2);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (opt1), 1);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 2);
 	gtk_entry_set_text(GTK_ENTRY(en1), "1");
 	gtk_editable_set_editable(GTK_EDITABLE(en1), FALSE);
 
@@ -1245,8 +1244,8 @@ on_igmp_bt_toggled                     (GtkToggleButton *togglebutton,
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry34");
 	opt1 = lookup_widget(GTK_WIDGET(togglebutton), "optionmenu3");
 	
-	gtk_option_menu_set_history (GTK_OPTION_MENU (opt1), 2);
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 4);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (opt1), 2);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 4);
 	gtk_entry_set_text(GTK_ENTRY(en1), "2");
 	gtk_editable_set_editable(GTK_EDITABLE(en1), FALSE);
 }
@@ -1262,8 +1261,8 @@ on_ip_user_data_bt_toggled             (GtkToggleButton *togglebutton,
 	en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry34");
 	opt1 = lookup_widget(GTK_WIDGET(togglebutton), "optionmenu3");
 	
-	gtk_option_menu_set_history (GTK_OPTION_MENU (opt1), 5);
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 3);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (opt1), 5);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 3);
 	gtk_entry_set_text(GTK_ENTRY(en1), "");
 	gtk_editable_set_editable(GTK_EDITABLE(en1), TRUE);
 
@@ -1274,32 +1273,34 @@ void
 on_L_optmenu1_bt_clicked               (GtkButton       *button,
                                         gpointer         user_data)
 {
-        GtkWidget *option_menu, *menu, *active_item, *opt_value;
+    GtkComboBox *option_menu;
+    GtkWidget   *option_value;
 	gint active_index;
 
-	option_menu = lookup_widget (GTK_WIDGET (button), "L_optmenu1_bt");
-	opt_value = lookup_widget (GTK_WIDGET (button), "L_ethtype");
-	menu = GTK_OPTION_MENU (option_menu)->menu;
-	active_item = gtk_menu_get_active (GTK_MENU (menu));
-	active_index = g_list_index (GTK_MENU_SHELL (menu)->children, active_item);
+    option_menu = GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "L_optmenu1_bt"));
+    option_value = lookup_widget (GTK_WIDGET (button), "L_ethtype");
+    active_index = gtk_combo_box_get_active (option_menu);
 
-
-	if (active_index == 0) {
-		gtk_entry_set_text(GTK_ENTRY(opt_value), "0800");
-		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-	}
-	else if (active_index == 1) {
-		gtk_entry_set_text(GTK_ENTRY(opt_value), "86DD");
-		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-	}
-	else if (active_index == 2) {
-		gtk_entry_set_text(GTK_ENTRY(opt_value), "0806");
-		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-	}
-	else if (active_index == 3) {
-		gtk_entry_set_text(GTK_ENTRY(opt_value), "");
-		gtk_editable_set_editable(GTK_EDITABLE(opt_value), TRUE);
-	}
+    gtk_editable_set_editable(GTK_EDITABLE(option_value), FALSE);
+    switch( active_index ) {
+        case 0 : {
+            gtk_entry_set_text(GTK_ENTRY(option_value), "0800");
+            break;
+        }
+        case 1 : {
+            gtk_entry_set_text(GTK_ENTRY(option_value), "86DD");
+            break;
+        }
+        case 2 : {
+            gtk_entry_set_text(GTK_ENTRY(option_value), "0806");
+            break;
+        }
+        default : {
+            gtk_entry_set_text(GTK_ENTRY(option_value), "");
+            gtk_editable_set_editable(GTK_EDITABLE(option_value), TRUE);
+            break;
+        }
+    }
 }
 
 
@@ -1307,32 +1308,34 @@ void
 on_optionmenu6_clicked               (GtkButton       *button,
                                         gpointer         user_data)
 {
-        GtkWidget *option_menu, *menu, *active_item, *opt_value;
-	gint active_index;
+    GtkComboBox *option_menu;
+    GtkWidget   *option_value;
+    gint active_index;
 
-	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu6");
-	opt_value = lookup_widget (GTK_WIDGET (button), "L_pid");
-	menu = GTK_OPTION_MENU (option_menu)->menu;
-	active_item = gtk_menu_get_active (GTK_MENU (menu));
-	active_index = g_list_index (GTK_MENU_SHELL (menu)->children, active_item);
+    option_menu = GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "optionmenu6"));
+    option_value = lookup_widget (GTK_WIDGET (button), "L_pid");
+    active_index = gtk_combo_box_get_active (option_menu);
 
-
-	if (active_index == 0) {
-		gtk_entry_set_text(GTK_ENTRY(opt_value), "0800");
-		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-	}
-	else if (active_index == 1) {
-		gtk_entry_set_text(GTK_ENTRY(opt_value), "86DD");
-		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-	}
-	else if (active_index == 2) {
-		gtk_entry_set_text(GTK_ENTRY(opt_value), "0806");
-		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-	}
-	else if (active_index == 3) {
-		gtk_entry_set_text(GTK_ENTRY(opt_value), "");
-		gtk_editable_set_editable(GTK_EDITABLE(opt_value), TRUE);
-	}
+    gtk_editable_set_editable(GTK_EDITABLE(option_value), FALSE);
+    switch( active_index ) {
+        case 0 : {
+            gtk_entry_set_text(GTK_ENTRY(option_value), "0800");
+            break;
+        }
+        case 1 : {
+            gtk_entry_set_text(GTK_ENTRY(option_value), "86DD");
+            break;
+        }
+        case 2 : {
+            gtk_entry_set_text(GTK_ENTRY(option_value), "0806");
+            break;
+        }
+        default : {
+            gtk_entry_set_text(GTK_ENTRY(option_value), "");
+            gtk_editable_set_editable(GTK_EDITABLE(option_value), TRUE);
+            break;
+        }
+    }
 }
 
 
@@ -1351,8 +1354,8 @@ on_IPv6_rdbt_toggled                   (GtkToggleButton *togglebutton,
 	option_menu = lookup_widget(GTK_WIDGET(togglebutton), "L_optmenu1_bt");
 	opt_value = lookup_widget(GTK_WIDGET(togglebutton), "L_ethtype");
 	nt2 = lookup_widget(GTK_WIDGET(togglebutton), "notebook2");
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt2), 1);
-	gtk_option_menu_set_history (GTK_OPTION_MENU (option_menu), 1);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt2), 1);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (option_menu), 1);
 	gtk_entry_set_text(GTK_ENTRY(opt_value), "86DD");
 	gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
 
@@ -1366,14 +1369,14 @@ on_IPv6_rdbt_toggled                   (GtkToggleButton *togglebutton,
         //gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
         //gtk_editable_set_editable(GTK_EDITABLE(opt_value2), FALSE);
 
-        if (GTK_TOGGLE_BUTTON(rb1)->active)
-                gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 0);
-        else if (GTK_TOGGLE_BUTTON(rb2)->active)
-                gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 1);
-        else if (GTK_TOGGLE_BUTTON(rb3)->active)
-                gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 5);
+        if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(rb1)) )
+                gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 0);
+        else if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(rb2)) )
+                gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 1);
+        else if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(rb3)) )
+                gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 5);
         else
-                gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 3);
+                gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 3);
 
 
 }
@@ -1386,7 +1389,7 @@ on_Build_button_clicked                    (GtkButton       *button,
         GtkWidget *nt1;
 	
 	nt1 = lookup_widget(GTK_WIDGET(button), "notebook1");
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt1), 0);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt1), 0);
 
         nt1 = lookup_widget(GTK_WIDGET(button), "Load_button");
         gtk_widget_set_sensitive(nt1, TRUE);
@@ -1449,7 +1452,7 @@ on_Gen_button_clicked                    (GtkButton       *button,
 	ntbk4 = lookup_widget (GTK_WIDGET (button), "notebook4");
 	nt1 = lookup_widget(GTK_WIDGET(button), "notebook1");
 	crc_value = lookup_widget(GTK_WIDGET (button), "entry164");
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt1), 1);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt1), 1);
 	
         nt1 = lookup_widget(GTK_WIDGET(button), "Load_button");
         gtk_widget_set_sensitive(nt1, FALSE);
@@ -1590,7 +1593,7 @@ on_Gen_s_bt_clicked                    (GtkButton       *button,
         GtkWidget *nt1;
 	
 	nt1 = lookup_widget(GTK_WIDGET(button), "notebook1");
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt1), 2);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt1), 2);
 
         nt1 = lookup_widget(GTK_WIDGET(button), "Load_button");
         gtk_widget_set_sensitive(nt1, FALSE);
@@ -1618,7 +1621,7 @@ on_Gen_k_bt_clicked                    (GtkButton       *button,
         GtkWidget *nt1;
 	
 	nt1 = lookup_widget(GTK_WIDGET(button), "notebook1");
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt1), 3);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt1), 3);
 }
 
 void
@@ -1637,39 +1640,42 @@ void
 on_optionmenu3_clicked                 (GtkButton       *button,
                                         gpointer         user_data)
 {
-        GtkWidget *option_menu, *menu, *active_item, *opt_value;
-	gint active_index;
+    GtkComboBox *option_menu;
+    GtkWidget   *option_value;
+    gint active_index;
 
-	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu3");
-	opt_value = lookup_widget (GTK_WIDGET (button), "entry34");
-	menu = GTK_OPTION_MENU (option_menu)->menu;
-	active_item = gtk_menu_get_active (GTK_MENU (menu));
-	active_index = g_list_index (GTK_MENU_SHELL (menu)->children, active_item);
+    option_menu = GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "optionmenu3"));
+    option_value = lookup_widget (GTK_WIDGET (button), "entry34");
+    active_index = gtk_combo_box_get_active (option_menu);
 
-	if (active_index == 0) {
-		gtk_entry_set_text(GTK_ENTRY(opt_value), "0");
-		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-	}
-	else if (active_index == 1) {
-		gtk_entry_set_text(GTK_ENTRY(opt_value), "1");
-		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-	}
-	else if (active_index == 2) {
-		gtk_entry_set_text(GTK_ENTRY(opt_value), "2");
-		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-	}
-	else if (active_index == 3) {
-		gtk_entry_set_text(GTK_ENTRY(opt_value), "6");
-		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-	}
-	else if (active_index == 4) {
-		gtk_entry_set_text(GTK_ENTRY(opt_value), "17");
-		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-	}
-	else if (active_index == 5) {
-		gtk_entry_set_text(GTK_ENTRY(opt_value), "");
-		gtk_editable_set_editable(GTK_EDITABLE(opt_value), TRUE);
-	}
+    gtk_editable_set_editable(GTK_EDITABLE(option_value), FALSE);
+    switch( active_index ) {
+        case 0 : {
+            gtk_entry_set_text(GTK_ENTRY(option_value), "0");
+            break;
+        }
+        case 1 : {
+            gtk_entry_set_text(GTK_ENTRY(option_value), "1");
+            break;
+        }
+        case 2 : {
+            gtk_entry_set_text(GTK_ENTRY(option_value), "2");
+            break;
+        }
+        case 3 : {
+            gtk_entry_set_text(GTK_ENTRY(option_value), "6");
+            break;
+        }
+        case 4 : {
+            gtk_entry_set_text(GTK_ENTRY(option_value), "17");
+            break;
+        }
+        default : {
+            gtk_entry_set_text(GTK_ENTRY(option_value), "");
+            gtk_editable_set_editable(GTK_EDITABLE(option_value), TRUE);
+            break;
+        }
+    }
 
 }
 
@@ -1680,7 +1686,7 @@ on_ip_header_cks_cbt_toggled           (GtkToggleButton *togglebutton,
 {
         GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry35");
-	if (GTK_TOGGLE_BUTTON(togglebutton)->active) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton)) ) {
                 gtk_widget_set_sensitive(en1, FALSE);
 		gtk_entry_set_text(GTK_ENTRY(en1), "");
         }
@@ -1720,7 +1726,7 @@ on_checkbutton13_toggled               (GtkToggleButton *togglebutton,
 {
         GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry52");
-	if (GTK_TOGGLE_BUTTON(togglebutton)->active) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton)) ) {
                 gtk_widget_set_sensitive(en1, FALSE);
 		gtk_entry_set_text(GTK_ENTRY(en1), "");
         }
@@ -1736,7 +1742,7 @@ on_checkbutton4_toggled                (GtkToggleButton *togglebutton,
 {
         GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry43");
-	if (GTK_TOGGLE_BUTTON(togglebutton)->active) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton)) ) {
                 gtk_widget_set_sensitive(en1, FALSE);
 		gtk_entry_set_text(GTK_ENTRY(en1), "");
         }
@@ -1750,35 +1756,35 @@ void
 on_optionmenu4_clicked                 (GtkButton       *button,
                                         gpointer         user_data)
 {
-        GtkWidget *option_menu, *menu, *active_item, *opt_value, *ntbk5;
+    GtkWidget *option_menu, *menu, *active_item, *opt_value, *ntbk5;
 	gint active_index;
 
 	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu4");
 	opt_value = lookup_widget (GTK_WIDGET (button), "entry57");
 	ntbk5 = lookup_widget (GTK_WIDGET (button), "notebook5");
-	menu = GTK_OPTION_MENU (option_menu)->menu;
+    menu = GTK_COMBO_BOX (option_menu)->menu;
 	active_item = gtk_menu_get_active (GTK_MENU (menu));
 	active_index = g_list_index (GTK_MENU_SHELL (menu)->children, active_item);
 
 	if (active_index == 0) {
 		gtk_entry_set_text(GTK_ENTRY(opt_value), "00");
 		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-		gtk_notebook_set_page(GTK_NOTEBOOK(ntbk5), 0);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(ntbk5), 0);
 	}
 	else if (active_index == 1) {
 		gtk_entry_set_text(GTK_ENTRY(opt_value), "03");
 		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-		gtk_notebook_set_page(GTK_NOTEBOOK(ntbk5), 2);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(ntbk5), 2);
 	}
 	else if (active_index == 2) {
 		gtk_entry_set_text(GTK_ENTRY(opt_value), "08");
 		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-		gtk_notebook_set_page(GTK_NOTEBOOK(ntbk5), 5);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(ntbk5), 5);
 	}
 	else  {
 		gtk_entry_set_text(GTK_ENTRY(opt_value), "");
 		gtk_editable_set_editable(GTK_EDITABLE(opt_value), TRUE);
-		gtk_notebook_set_page(GTK_NOTEBOOK(ntbk5), 1);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(ntbk5), 1);
 	}
 
 }
@@ -1790,7 +1796,7 @@ on_checkbutton16_toggled               (GtkToggleButton *togglebutton,
 {
         GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry63");
-	if (GTK_TOGGLE_BUTTON(togglebutton)->active) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton)) ) {
                 gtk_widget_set_sensitive(en1, FALSE);
 		gtk_entry_set_text(GTK_ENTRY(en1), "");
         }
@@ -1809,7 +1815,7 @@ on_optionmenu5_clicked                 (GtkButton       *button,
 
 	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu5");
 	opt_value = lookup_widget (GTK_WIDGET (button), "entry58");
-	menu = GTK_OPTION_MENU (option_menu)->menu;
+    menu = GTK_COMBO_BOX (option_menu)->menu;
 	active_item = gtk_menu_get_active (GTK_MENU (menu));
 	active_index = g_list_index (GTK_MENU_SHELL (menu)->children, active_item);
 	
@@ -1891,7 +1897,7 @@ on_checkbutton15_toggled               (GtkToggleButton *togglebutton,
 {
         GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry59");
-	if (GTK_TOGGLE_BUTTON(togglebutton)->active) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton)) ) {
                 gtk_widget_set_sensitive(en1, FALSE);
 		gtk_entry_set_text(GTK_ENTRY(en1), "");
         }
@@ -1907,7 +1913,7 @@ on_checkbutton20_toggled               (GtkToggleButton *togglebutton,
 {
         GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry77");
-	if (GTK_TOGGLE_BUTTON(togglebutton)->active) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton)) ) {
                 gtk_widget_set_sensitive(en1, FALSE);
 		gtk_entry_set_text(GTK_ENTRY(en1), "");
         }
@@ -1923,7 +1929,7 @@ on_checkbutton2_toggled                (GtkToggleButton *togglebutton,
 {
         GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry5");
-	if (GTK_TOGGLE_BUTTON(togglebutton)->active) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton)) ) {
                 gtk_widget_set_sensitive(en1, FALSE);
 		gtk_entry_set_text(GTK_ENTRY(en1), "");
         }
@@ -2056,8 +2062,8 @@ on_button37_clicked                    (GtkButton       *button,
 	entry_field_tos = lookup_widget(GTK_WIDGET(button), "entry28");
 
 	if (tos_dialog_menu != NULL) {
-		gdk_window_show(tos_dialog_menu->window);
-		gdk_window_raise(tos_dialog_menu->window);
+        gdk_window_show( gtk_widget_get_window(tos_dialog_menu) );
+        gdk_window_raise( gtk_widget_get_window(tos_dialog_menu) );
 		return;
 	}
 	tos_dialog_menu = create_tos_dialod();
@@ -2132,7 +2138,7 @@ on_checkbutton21_toggled               (GtkToggleButton *togglebutton,
 {
         GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry29");
-	if (GTK_TOGGLE_BUTTON(togglebutton)->active) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton)) ) {
                 gtk_widget_set_sensitive(en1, FALSE);
 		gtk_entry_set_text(GTK_ENTRY(en1), "");
         }
@@ -2148,7 +2154,7 @@ on_checkbutton3_toggled                (GtkToggleButton *togglebutton,
         GtkWidget *en1;
 
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry42");
-	if (GTK_TOGGLE_BUTTON(togglebutton)->active) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton)) ) {
                 gtk_widget_set_sensitive(en1, FALSE);
 		gtk_entry_set_text(GTK_ENTRY(en1), "");
         }
@@ -2163,7 +2169,7 @@ on_Interface_button_clicked                    (GtkButton       *button,
                                         gpointer         user_data)
 {
         GtkWidget *combo;
-	GList *glist=NULL;
+    //GList *glist=NULL;
 
 	struct ifconf       Ifc;
 	struct ifreq        IfcBuf[512];
@@ -2179,8 +2185,8 @@ on_Interface_button_clicked                    (GtkButton       *button,
 	statusbar_text(button, "");
 
 	if (interface_dialog_menu != NULL) {
-		gdk_window_show(interface_dialog_menu->window);
-		gdk_window_raise(interface_dialog_menu->window);
+        gdk_window_show( gtk_widget_get_window(interface_dialog_menu) );
+        gdk_window_raise( gtk_widget_get_window(interface_dialog_menu) );
 		return;
 	}
 	interface_dialog_menu = create_interface_dialog();
@@ -2207,7 +2213,8 @@ on_Interface_button_clicked                    (GtkButton       *button,
 	ptr = buff;
         while (pif->if_index) {
                        snprintf(ptr, 100, "%s", pif->if_name);
-                        glist = g_list_append(glist, ptr);
+                        //glist = g_list_append(glist, ptr);
+                        gtk_combo_box_text_append_text((GTK_COMBO_BOX(combo), iftext);
                         ptr = ptr + strlen(pif->if_name) + 1;
                         length = length + strlen(pif->if_name) + 1;
                        pif++;
@@ -2227,11 +2234,11 @@ on_Interface_button_clicked                    (GtkButton       *button,
 	}
 	*/
 	if_freenameindex(head);
+/*
+    gtk_combo_box_set_popdown_strings(GTK_COMBO_BOX(combo), glist) ;
 
-	gtk_combo_set_popdown_strings(GTK_COMBO(combo), glist) ;
-
-	gtk_entry_set_text(GTK_ENTRY(GTK_COMBO(combo)->entry), iftext);
-
+    gtk_combo_box_append_text((GTK_COMBO_BOX(combo), iftext);
+*/
 	gtk_widget_show(interface_dialog_menu);
 
 }
@@ -2245,7 +2252,7 @@ on_button50_clicked                    (GtkButton       *button,
 
 	combo = lookup_widget(GTK_WIDGET (interface_dialog_menu), "combo1");
 
-	snprintf(iftext, 19, "%s", gtk_entry_get_text(GTK_ENTRY(GTK_COMBO(combo)->entry)));
+    snprintf(iftext, 19, "%s", gtk_combo_box_get_active_text(GTK_COMBO_BOX(combo)));
 
 	gtk_grab_remove(gtk_widget_get_toplevel(GTK_WIDGET(button)));
 	gtk_widget_destroy(gtk_widget_get_toplevel(GTK_WIDGET(button)));
@@ -2296,8 +2303,8 @@ void error(gchar *error_type)
       	if (error_dialog_menu != NULL) {
     		label = lookup_widget(GTK_WIDGET(error_dialog_menu), "label165");
 		gtk_label_set_text(GTK_LABEL(label), error_type);
-                gdk_window_show(error_dialog_menu->window);
-                gdk_window_raise(error_dialog_menu->window);
+                gdk_window_show( gtk_widget_get_window(error_dialog_menu) );
+                gdk_window_raise( gtk_widget_get_window(error_dialog_menu) );
                 return;
         }
 	else {
@@ -2368,8 +2375,8 @@ on_udp_select_payload_button_clicked   (GtkButton       *button,
                                         gpointer         user_data)
 {
 	if (udp_payload_dialog != NULL) {
-		gdk_window_show(udp_payload_dialog->window);
-		gdk_window_raise(udp_payload_dialog->window);
+        gdk_window_show( gtk_widget_get_window(udp_payload_dialog) );
+        gdk_window_raise( gtk_widget_get_window(udp_payload_dialog) );
                 return;
 	}
 
@@ -2403,7 +2410,7 @@ on_rtp_apply_button_clicked            (GtkButton       *button,
 
 	
 	/* next we need the amplitude */
-        menu = GTK_OPTION_MENU(amp)->menu;
+        menu = GTK_COMBO_BOX(amp)->menu;
         menu_item = gtk_menu_get_active (GTK_MENU (menu));
         amp_index = g_list_index (GTK_MENU_SHELL (menu)->children, menu_item);
 
@@ -2433,7 +2440,7 @@ on_rtp_apply_button_clicked            (GtkButton       *button,
 	}
 
 	/* call the function */
-	if (GTK_TOGGLE_BUTTON(alaw_bt)->active)  {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(alaw_bt)) )  {
 		if (insert_frequency(1, frequency, length, payload_entry, amp_index) == 0) {
 			//printf("Error: Problem inserting RTP alaw payload frequency\n");
 			error("Error: Problem inserting RTP alaw payload frequency");
@@ -2523,12 +2530,12 @@ on_rtp_ok_bt_clicked                   (GtkButton       *button,
                                 return;
 	
 	/* should we add paddind automaticaly or not? no we do not do it */
-	if (GTK_TOGGLE_BUTTON(padding_true)->active) 
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(padding_true)) )
 		intpadding = 1;
 	else
 		intpadding = 0;
 
-	if (GTK_TOGGLE_BUTTON(extension_true)->active) 
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(extension_true)) )
 		intextension = 1;
 	else
 		intextension = 0;
@@ -2550,7 +2557,7 @@ on_rtp_ok_bt_clicked                   (GtkButton       *button,
  	tmp[ij] = c4(intcsrc); ij++;
 
 	/* next byte */	
-	if (GTK_TOGGLE_BUTTON(marker_true)->active) 
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(marker_true)) )
 		intmarker = 1;
 	else
 		intmarker = 0;
@@ -2770,7 +2777,7 @@ on_checkbutton35_toggled               (GtkToggleButton *togglebutton,
 {
         GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry109");
-	if (GTK_TOGGLE_BUTTON(togglebutton)->active) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton)) ) {
                 gtk_widget_set_sensitive(en1, FALSE);
         }
         else 
@@ -2785,8 +2792,8 @@ on_button65_clicked                    (GtkButton       *button,
 	entry_field = lookup_widget(GTK_WIDGET(button), "entry111");
 	
 	if (file_menu != NULL) {
-		gdk_window_show(file_menu->window);
-		gdk_window_raise(file_menu->window);
+        gdk_window_show( gtk_widget_get_window(file_menu) );
+        gdk_window_raise( gtk_widget_get_window(file_menu) );
                 return;
 	}
 
@@ -2805,8 +2812,8 @@ on_button66_clicked                    (GtkButton       *button,
 	entry_field = lookup_widget(GTK_WIDGET(button), "entry112");
 
 	if (file_menu != NULL) {
-		gdk_window_show(file_menu->window);
-		gdk_window_raise(file_menu->window);
+        gdk_window_show( gtk_widget_get_window(file_menu) );
+        gdk_window_raise( gtk_widget_get_window(file_menu) );
                 return;
 	}
         file_menu = create_fileselection1();
@@ -2824,8 +2831,8 @@ on_button67_clicked                    (GtkButton       *button,
 	entry_field = lookup_widget(GTK_WIDGET(button), "entry113");
 
 	if (file_menu != NULL) {
-		gdk_window_show(file_menu->window);
-		gdk_window_raise(file_menu->window);
+        gdk_window_show( gtk_widget_get_window(file_menu));
+        gdk_window_raise( gtk_widget_get_window(file_menu));
                 return;
 	}
         file_menu = create_fileselection1();
@@ -2843,8 +2850,8 @@ on_button68_clicked                    (GtkButton       *button,
 	entry_field = lookup_widget(GTK_WIDGET(button), "entry114");
 
 	if (file_menu != NULL) {
-		gdk_window_show(file_menu->window);
-		gdk_window_raise(file_menu->window);
+        gdk_window_show( gtk_widget_get_window(file_menu) );
+        gdk_window_raise( gtk_widget_get_window(file_menu) );
                 return;
 	}
         file_menu = create_fileselection1();
@@ -2862,8 +2869,8 @@ on_button69_clicked                    (GtkButton       *button,
 	entry_field = lookup_widget(GTK_WIDGET(button), "entry115");
 
 	if (file_menu != NULL) {
-		gdk_window_show(file_menu->window);
-		gdk_window_raise(file_menu->window);
+        gdk_window_show( gtk_widget_get_window(file_menu) );
+        gdk_window_raise( gtk_widget_get_window(file_menu) );
                 return;
 	}
         file_menu = create_fileselection1();
@@ -2881,8 +2888,8 @@ on_button70_clicked                    (GtkButton       *button,
 	entry_field = lookup_widget(GTK_WIDGET(button), "entry116");
 
 	if (file_menu != NULL) {
-		gdk_window_show(file_menu->window);
-		gdk_window_raise(file_menu->window);
+        gdk_window_show( gtk_widget_get_window(file_menu) );
+        gdk_window_raise( gtk_widget_get_window(file_menu) );
                 return;
 	}
         file_menu = create_fileselection1();
@@ -2900,8 +2907,8 @@ on_button71_clicked                    (GtkButton       *button,
 	entry_field = lookup_widget(GTK_WIDGET(button), "entry117");
 
 	if (file_menu != NULL) {
-		gdk_window_show(file_menu->window);
-		gdk_window_raise(file_menu->window);
+        gdk_window_show( gtk_widget_get_window(file_menu) );
+        gdk_window_raise( gtk_widget_get_window(file_menu) );
                 return;
 	}
         file_menu = create_fileselection1();
@@ -2918,8 +2925,8 @@ on_button72_clicked                    (GtkButton       *button,
 	entry_field = lookup_widget(GTK_WIDGET(button), "entry118");
 
 	if (file_menu != NULL) {
-		gdk_window_show(file_menu->window);
-		gdk_window_raise(file_menu->window);
+        gdk_window_show( gtk_widget_get_window(file_menu) );
+        gdk_window_raise( gtk_widget_get_window(file_menu) );
                 return;
 	}
         file_menu = create_fileselection1();
@@ -2937,8 +2944,8 @@ on_button73_clicked                    (GtkButton       *button,
 	entry_field = lookup_widget(GTK_WIDGET(button), "entry119");
 
 	if (file_menu != NULL) {
-		gdk_window_show(file_menu->window);
-		gdk_window_raise(file_menu->window);
+        gdk_window_show( gtk_widget_get_window(file_menu) );
+        gdk_window_raise( gtk_widget_get_window(file_menu) );
                 return;
 	}
         file_menu = create_fileselection1();
@@ -2956,8 +2963,8 @@ on_button74_clicked                    (GtkButton       *button,
 	entry_field = lookup_widget(GTK_WIDGET(button), "entry120");
 
 	if (file_menu != NULL) {
-		gdk_window_show(file_menu->window);
-		gdk_window_raise(file_menu->window);
+        gdk_window_show( gtk_widget_get_window(file_menu) );
+        gdk_window_raise(gtk_widget_get_window(file_menu) );
                 return;
 	}
         file_menu = create_fileselection1();
@@ -2974,14 +2981,14 @@ on_select_database1_activate           (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
 	if (database_file_menu != NULL) {
-		gdk_window_show(database_file_menu->window);
-		gdk_window_raise(database_file_menu->window);
+        gdk_window_show( gtk_widget_get_window(database_file_menu) );
+        gdk_window_raise(gtk_widget_get_window(database_file_menu) );
 		return;
 	}
 
 	if (selection1_dialog != NULL){
-		gdk_window_show(selection1_dialog->window);
-		gdk_window_raise(selection1_dialog->window);
+        gdk_window_show( gtk_widget_get_window(selection1_dialog) );
+        gdk_window_raise(gtk_widget_get_window(selection1_dialog) );
 		return;
 	}
 
@@ -3106,25 +3113,25 @@ on_button76_clicked                    (GtkButton       *button,
 
         tbt1 = lookup_widget(GTK_WIDGET(button), "radiobutton38");
 
-	if (GTK_TOGGLE_BUTTON(tbt1)->active) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(tbt1)) ) {
 		w1 = lookup_widget(GTK_WIDGET(button), "optionmenu13");
 		w2 = lookup_widget(GTK_WIDGET(button), "radiobutton48");
 		w3 = lookup_widget(GTK_WIDGET(button), "radiobutton50");
 		w4 = lookup_widget(GTK_WIDGET(button), "radiobutton52");
 		w5 = lookup_widget(GTK_WIDGET(button), "radiobutton54");
 
-		menu = GTK_OPTION_MENU(w1)->menu;
+        menu = GTK_COMBO_BOX(w1)->menu;
                 menu_item = gtk_menu_get_active (GTK_MENU (menu));
                 tos_value = g_list_index (GTK_MENU_SHELL (menu)->children, menu_item);
 		tos_value = tos_value << 5;
 
-		if (GTK_TOGGLE_BUTTON(w2)->active) 
-			tos_value = tos_value + 16;
-		if (GTK_TOGGLE_BUTTON(w3)->active) 
-			tos_value = tos_value + 8;
-		if (GTK_TOGGLE_BUTTON(w4)->active) 
-			tos_value = tos_value + 4;
-		if (GTK_TOGGLE_BUTTON(w5)->active) 
+        if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(w2)) )
+            tos_value = tos_value + 16;
+        if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(w3)) )
+            tos_value = tos_value + 8;
+        if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(w4)) )
+            tos_value = tos_value + 4;
+        if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(w5)) )
 			tos_value = tos_value + 2;
         }
         else {
@@ -3141,10 +3148,10 @@ on_button76_clicked                    (GtkButton       *button,
 		
 
         	en1 = lookup_widget(GTK_WIDGET(button), "checkbutton44");
-		if (GTK_TOGGLE_BUTTON(en1)->active)
+        if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(en1)) )
 			tos_value = tos_value + 2;
         	en1 = lookup_widget(GTK_WIDGET(button), "checkbutton45");
-		if (GTK_TOGGLE_BUTTON(en1)->active)
+        if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(en1) ))
 			tos_value = tos_value + 1;
 		}	
 	}
@@ -3297,7 +3304,7 @@ on_optionmenu14_clicked                (GtkButton       *button,
 	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu14");
 	en = lookup_widget (GTK_WIDGET (button), "entry161");
 	
-	menu = GTK_OPTION_MENU (option_menu)->menu;
+    menu = GTK_COMBO_BOX (option_menu)->menu;
 	active_item = gtk_menu_get_active (GTK_MENU (menu));
 	active_index = g_list_index (GTK_MENU_SHELL (menu)->children, active_item);
 
@@ -3320,7 +3327,7 @@ on_optionmenu15_clicked                (GtkButton       *button,
 	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu15");
 	en = lookup_widget (GTK_WIDGET (button), "entry163");
 	
-	menu = GTK_OPTION_MENU (option_menu)->menu;
+    menu = GTK_COMBO_BOX (option_menu)->menu;
 	active_item = gtk_menu_get_active (GTK_MENU (menu));
 	active_index = g_list_index (GTK_MENU_SHELL (menu)->children, active_item);
 
@@ -3340,8 +3347,8 @@ on_button78_clicked                    (GtkButton       *button,
 	entry_field_fragment = lookup_widget(GTK_WIDGET(button), "entry31");
 
 	if (fragment_dialog_menu != NULL) {
-		gdk_window_show(fragment_dialog_menu->window);
-		gdk_window_raise(fragment_dialog_menu->window);
+        gdk_window_show( gtk_widget_get_window(fragment_dialog_menu) );
+        gdk_window_raise(gtk_widget_get_window(fragment_dialog_menu) );
 		return;
 	}
 	fragment_dialog_menu = create_fragmentation_dialog();
@@ -3360,11 +3367,11 @@ on_button79_clicked                    (GtkButton       *button,
         w1 = lookup_widget(GTK_WIDGET(button), "radiobutton55");
         w2 = lookup_widget(GTK_WIDGET(button), "radiobutton57");
 
-	if ( (GTK_TOGGLE_BUTTON(w1)->active) && (GTK_TOGGLE_BUTTON(w2)->active) )
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(w1)) && gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(w2)) )
 				tmp[0] = '3';
-	else if ( (GTK_TOGGLE_BUTTON(w1)->active) && !(GTK_TOGGLE_BUTTON(w2)->active) )
+    else if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(w1)) && !gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(w2)) )
 				tmp[0] = '2';
-	else if ( !(GTK_TOGGLE_BUTTON(w1)->active) && (GTK_TOGGLE_BUTTON(w2)->active) )
+    else if ( !gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(w1)) && gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(w2)) )
 				tmp[0] = '1';
 	else
 				tmp[0] = '0';
@@ -3520,7 +3527,7 @@ on_checkbutton40_toggled               (GtkToggleButton *togglebutton,
 {
         GtkWidget *txt6;
 	txt6 = lookup_widget(GTK_WIDGET(togglebutton), "entry165");
-	if (GTK_TOGGLE_BUTTON(togglebutton)->active)
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton)) )
 		gtk_widget_set_sensitive(txt6, TRUE);
 	else
 		gtk_widget_set_sensitive(txt6, FALSE);
@@ -3537,44 +3544,44 @@ on_igmpmessage_type_clicked            (GtkButton       *button,
 	option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu20");
 	opt_value = lookup_widget (GTK_WIDGET (button), "entry166");
 	ntbk5 = lookup_widget (GTK_WIDGET (button), "notebook8");
-	menu = GTK_OPTION_MENU (option_menu)->menu;
+    menu = GTK_COMBO_BOX (option_menu)->menu;
 	active_item = gtk_menu_get_active (GTK_MENU (menu));
 	active_index = g_list_index (GTK_MENU_SHELL (menu)->children, active_item);
 
 	if (active_index == 0) {
 		gtk_entry_set_text(GTK_ENTRY(opt_value), "11");
 		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-		gtk_notebook_set_page(GTK_NOTEBOOK(ntbk5), 0);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(ntbk5), 0);
 	}
 	else if (active_index == 1) {
 		gtk_entry_set_text(GTK_ENTRY(opt_value), "11");
 		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-		gtk_notebook_set_page(GTK_NOTEBOOK(ntbk5), 1);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(ntbk5), 1);
 	}
 	else if (active_index == 2) {
 		gtk_entry_set_text(GTK_ENTRY(opt_value), "12");
 		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-		gtk_notebook_set_page(GTK_NOTEBOOK(ntbk5), 0);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(ntbk5), 0);
 	}
 	else if (active_index == 3) {
 		gtk_entry_set_text(GTK_ENTRY(opt_value), "16");
 		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-		gtk_notebook_set_page(GTK_NOTEBOOK(ntbk5), 0);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(ntbk5), 0);
 	}
 	else if (active_index == 4) {
 		gtk_entry_set_text(GTK_ENTRY(opt_value), "22");
 		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-		gtk_notebook_set_page(GTK_NOTEBOOK(ntbk5), 2);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(ntbk5), 2);
 	}
 	else if (active_index == 5) {
 		gtk_entry_set_text(GTK_ENTRY(opt_value), "17");
 		gtk_editable_set_editable(GTK_EDITABLE(opt_value), FALSE);
-		gtk_notebook_set_page(GTK_NOTEBOOK(ntbk5), 0);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(ntbk5), 0);
 	}
 	else  {
 		gtk_entry_set_text(GTK_ENTRY(opt_value), "");
 		gtk_editable_set_editable(GTK_EDITABLE(opt_value), TRUE);
-		gtk_notebook_set_page(GTK_NOTEBOOK(ntbk5), 0);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(ntbk5), 0);
 	}
 
 }
@@ -3586,7 +3593,7 @@ on_igmp_checksum_bt_toggled            (GtkToggleButton *togglebutton,
 {
         GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry168");
-	if (GTK_TOGGLE_BUTTON(togglebutton)->active) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton)) ) {
                 gtk_widget_set_sensitive(en1, FALSE);
 		gtk_entry_set_text(GTK_ENTRY(en1), "");
         }
@@ -3707,7 +3714,7 @@ on_Gen_p_clicked                       (GtkButton       *button,
         GtkWidget *nt1;
 	
 	nt1 = lookup_widget(GTK_WIDGET(button), "notebook1");
-	gtk_notebook_set_page(GTK_NOTEBOOK(nt1), 3);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(nt1), 3);
 
         nt1 = lookup_widget(GTK_WIDGET(button), "Load_button");
         gtk_widget_set_sensitive(nt1, TRUE);
@@ -3791,7 +3798,7 @@ on_button87_clicked                    (GtkButton       *button,
 		/* skip is disable button is clicked */
  		sprintf(ime, "checkbutton%d", i+25);
          	en1 = lookup_widget(GTK_WIDGET(button), ime);
- 		if (GTK_TOGGLE_BUTTON(en1)->active)
+        if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(en1)) )
  			continue;
 
 		/* get the bandwidth values */
@@ -3843,13 +3850,13 @@ on_button87_clicked                    (GtkButton       *button,
 	rb4 = lookup_widget(GTK_WIDGET(button), "radiobutton77");
 	//rb5 = lookup_widget(GTK_WIDGET(button), "radiobutton78");
 
-	if (GTK_TOGGLE_BUTTON(rb1)->active) 
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(rb1)) )
 		mode = 1;
-	else if (GTK_TOGGLE_BUTTON(rb2)->active) 
+    else if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(rb2)) )
 		mode = 2;
-	else if (GTK_TOGGLE_BUTTON(rb3)->active) 
+    else if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(rb3)) )
 		mode = 3;
-	else if (GTK_TOGGLE_BUTTON(rb4)->active) 
+    else if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(rb4)) )
 		mode = 4;
 	else  
 		mode = 5;
@@ -4136,7 +4143,7 @@ on_radiobutton67_toggled               (GtkToggleButton *togglebutton,
         GtkWidget *nt4, *en1;
         nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry199");
-        gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 0);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 0);
 	gtk_entry_set_text(GTK_ENTRY(en1), "11");
 }
 
@@ -4147,7 +4154,7 @@ on_radiobutton68_toggled               (GtkToggleButton *togglebutton,
 {
         GtkWidget *nt4, *en1;
         nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
-        gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 1);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 1);
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry199");
 	gtk_entry_set_text(GTK_ENTRY(en1), "06");
 
@@ -4160,7 +4167,7 @@ on_radiobutton69_toggled               (GtkToggleButton *togglebutton,
 {
         GtkWidget *nt4, *en1;
         nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
-        gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 5);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 5);
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry199");
 	gtk_entry_set_text(GTK_ENTRY(en1), "3A");
 
@@ -4173,7 +4180,7 @@ on_radiobutton71_toggled               (GtkToggleButton *togglebutton,
 {
         GtkWidget *nt4, *en1;
         nt4 = lookup_widget(GTK_WIDGET(togglebutton), "notebook4");
-        gtk_notebook_set_page(GTK_NOTEBOOK(nt4), 3);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(nt4), 3);
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry199");
 	gtk_entry_set_text(GTK_ENTRY(en1), "");
 
@@ -4186,7 +4193,7 @@ on_checkbutton43_toggled               (GtkToggleButton *togglebutton,
 {
         GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "entry198");
-	if (GTK_TOGGLE_BUTTON(togglebutton)->active) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton)) ) {
                 gtk_widget_set_sensitive(en1, FALSE);
 		gtk_entry_set_text(GTK_ENTRY(en1), "");
         }
@@ -4675,8 +4682,8 @@ on_button90_clicked                    (GtkButton       *button,
 	entry_field_tos = lookup_widget(GTK_WIDGET(button), "entry196");
 
 	if (tos_dialog_menu != NULL) {
-		gdk_window_show(tos_dialog_menu->window);
-		gdk_window_raise(tos_dialog_menu->window);
+        gdk_window_show( gtk_widget_get_window(tos_dialog_menu) );
+        gdk_window_raise( gtk_widget_get_window(tos_dialog_menu) );
 		return;
 	}
 	tos_dialog_menu = create_tos_dialod();
@@ -4879,7 +4886,7 @@ on_optionmenu23_clicked                (GtkButton       *button,
 	hbox2 = lookup_widget (GTK_WIDGET (button), "hbox118");
 	mask = lookup_widget (GTK_WIDGET (button), "hbox1506");
 	
-	menu = GTK_OPTION_MENU (option_menu)->menu;
+    menu = GTK_COMBO_BOX (option_menu)->menu;
 	active_item = gtk_menu_get_active (GTK_MENU (menu));
 	active_index = g_list_index (GTK_MENU_SHELL (menu)->children, active_item);
 
@@ -4914,7 +4921,7 @@ on_optionmenu7_clicked               (GtkButton       *button,
 
         option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu7");
         opt_value = lookup_widget (GTK_WIDGET (button), "entry102");
-        menu = GTK_OPTION_MENU (option_menu)->menu;
+        menu = GTK_COMBO_BOX (option_menu)->menu;
         active_item = gtk_menu_get_active (GTK_MENU (menu));
         active_index = g_list_index (GTK_MENU_SHELL (menu)->children, active_item);
 
@@ -5137,7 +5144,7 @@ on_checkbutton66_toggled               (GtkToggleButton *togglebutton,
 {
         GtkWidget *en1;
         en1 = lookup_widget(GTK_WIDGET(togglebutton), "hbox1520");
-	if (GTK_TOGGLE_BUTTON(togglebutton)->active) {
+    if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton)) ) {
                 gtk_widget_set_sensitive(en1, TRUE);
         }
         else 

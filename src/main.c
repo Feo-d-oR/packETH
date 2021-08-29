@@ -82,7 +82,7 @@ main (int argc, char *argv[])
   //gtk_main ();
 
   gtk_main();
-  gdk_threads_leave();
+  //gdk_threads_leave();
 
   return 0;
 }

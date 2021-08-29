@@ -81,7 +81,7 @@ int save_gen_b(GtkButton *button, FILE *file_p) {
 	/* YYY we don't save this value, since we don't know how to load it. We don't know what packet this is */
 	//index = g_list_index (GTK_MENU_SHELL (bt7)->children, bt8);
 
-	if (GTK_TOGGLE_BUTTON(bt5)->active) {
+    if (GTK_TOGGLE_BUTTON(bt5)->toggle_button->active) {
 		count = -3;
 	}
 	else {

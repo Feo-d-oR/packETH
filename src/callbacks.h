@@ -531,7 +531,7 @@ on_Gen_p_clicked                       (GtkButton       *button,
                                         gpointer         user_data);
 
 void
-on_clist2_select_row                   (GtkCList        *clist,
+on_clist2_select_row                   (GtkTreeView     *clist,
                                         gint             row,
                                         gint             column,
                                         GdkEvent        *event,

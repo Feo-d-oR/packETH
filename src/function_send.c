@@ -178,8 +178,8 @@ int packet_go_on_the_link(unsigned char *pkt, int nr)
 void* sendbuilt (void *parameters)
 {
 	/* YYY check if li,... are long enough if inifinite number will be sent. Maybe put them into double */
-	long li, sentnumber = 0, test = 0, shouldbesent = 0, li_packets_sent_interval = 0;
-	long long gap = 0, gap1s = 0, gap2s = 0, gap3s = 0, correction = 0, last_correction = 0;
+    long li, sentnumber = 0, /* test = 0, */ shouldbesent = 0, li_packets_sent_interval = 0;
+    long long gap = 0, gap1s = 0, gap2s = 0, gap3s = 0, correction = 0;//, last_correction = 0;
 	struct timeval nowstr, first, last;
 	struct timespec first_ns, now_ns, last_ns, now1s_ns, last1s_ns;
 	int i, c, odd=0, actualnumber/*, correctcks = 0*/, step_counter = 0;
@@ -268,7 +268,7 @@ void* sendbuilt (void *parameters)
 	/* -----------------------------------------------------*/
 	
 	/* we check with == -3 if the infinite option was choosed, otherwise send until number of packets number was reached */
-	for(li = 0; ((p->count == -3) ? : li < p->count); ) {
+    for(li = 0; ((p->count == -3) ? 1 : li < p->count); ) {
 
 	    clock_gettime(CLOCK_MONOTONIC, &now_ns);
 	    gap = (now_ns.tv_sec*1000000000 + now_ns.tv_nsec) - (last_ns.tv_sec*1000000000 + last_ns.tv_nsec);
@@ -312,7 +312,7 @@ void* sendbuilt (void *parameters)
 	    }
 
 	    /* in speed ramp sending mode, we need to adjust timers according to start speed and step */
-	    if ( ( p->ramp_mode == 1) )  {
+        if ( p->ramp_mode == 1)  {
 			/* if the interval is over, let's recalculate delay */
 			if (gap3s >= p->ramp_interval) {
 			    step_counter++;
@@ -350,7 +350,7 @@ void* sendbuilt (void *parameters)
 	    in the size sending mode, but the user has selected Bandwith as rate. It means that BW will be the same and
 	    because size of the packets will change, also the gap between packets has to change and we need to recalculate it
 		*/
-	    else if ( ( p->ramp_mode == 2) )  {
+        else if ( p->ramp_mode == 2) {
 	    	// in this case we change packet length but delay stays the same
 			/* if the interval is over, let's recalculate delay */
 			if (gap3s >= p->ramp_interval) {
