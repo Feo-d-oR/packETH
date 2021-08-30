@@ -1,13 +1,4 @@
-bin_PROGRAMS=packETH 
-packETH_SOURCES= \
-	src/main.c \
-	src/support.c src/support.h \
-	src/callbacks.c src/callbacks.h \
-	src/function.c src/function.h \
-	src/function_send.c src/function_send.h \
-	src/loadpacket.c src/loadpacket.h \
-	src/savepacket.c src/savepacket.h \
-	src/headers.h
+SUBDIRS = src
 
 pixmaps= \
   src/pixmaps/Build.xpm  \
@@ -26,19 +17,9 @@ pixmaps= \
 pixmapdir=$(pkgdatadir)/pixmaps
 pixmap_DATA=$(pixmaps)
 
-DEFS= \
-  -DPKGDATADIR=\"$(pkgdatadir)/\"
-
-LIBS=$(DEPS_LIBS) -lm
-
-AM_CPPFLAGS = \
-  -g \
-  -O2 \
-  -Wall \
-  -Wmissing-prototypes \
-  -Wmissing-declarations \
-  -Wunused \
-  $(GTK3_CFLAGS)
-
 # Include the dev and pixmaps in the distribution (make dist)
 EXTRA_DIST=dev src/pixmaps
+
+## Define an independent executable script for inclusion in the distribution
+## archive. It will not be installed on an end user's system, however.
+dist_noinst_SCRIPTS = autogen.sh

@@ -109,7 +109,7 @@ int load_gen_b_data(GtkButton *button, FILE *file_p) {
 
 	/* adjusting parameters...
 	if ( (buff4[1] >= 0) && (buff4[1] <= 4) )
-		gtk_option_menu_set_history (GTK_OPTION_MENU (w3), buff4[1]);
+        gtk_combo_box_set_active (GTK_COMBO_BOX (w3), buff4[1]);
 	else {
 		return -1;
 	} */
@@ -626,13 +626,13 @@ int load_packet_disector(GtkButton *button, char *fieldek, int whocalled, struct
 				gtk_widget_set_sensitive (w7, TRUE);
 				gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (w5), TRUE);
 				if (i==33024)
-					gtk_option_menu_set_history (GTK_OPTION_MENU (w8), 0);
+                    gtk_combo_box_set_active (GTK_COMBO_BOX (w8), 0);
 				else if (i==34984)
-					gtk_option_menu_set_history (GTK_OPTION_MENU (w8), 3);
+                    gtk_combo_box_set_active (GTK_COMBO_BOX (w8), 3);
 				else if (i==37120)
-					gtk_option_menu_set_history (GTK_OPTION_MENU (w8), 1);
+                    gtk_combo_box_set_active (GTK_COMBO_BOX (w8), 1);
 				else if (i==37376)
-					gtk_option_menu_set_history (GTK_OPTION_MENU (w8), 2);
+                    gtk_combo_box_set_active (GTK_COMBO_BOX (w8), 2);
 
 				inspar(button, "entry165", ptrf, 4);
 			}
@@ -664,7 +664,7 @@ int load_packet_disector(GtkButton *button, char *fieldek, int whocalled, struct
 			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (w1), TRUE);
 			gtk_widget_set_sensitive (w2, TRUE);
 		
-			gtk_option_menu_set_history (GTK_OPTION_MENU (w3), (i>>1));
+            gtk_combo_box_set_active (GTK_COMBO_BOX (w3), (i>>1));
 
 			if ( (i%2) == 0)
 				gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (w4), FALSE);
@@ -1026,33 +1026,33 @@ int igmp_header(GtkButton *button, int whocalled) {
 	w2 = lookup_widget(GTK_WIDGET(button), "notebook8");
 	if (x == 17) {
 		if (remain > 4) {
-	        	gtk_option_menu_set_history (GTK_OPTION_MENU (w1), 1);
-			gtk_notebook_set_page(GTK_NOTEBOOK(w2), 1);
+                gtk_combo_box_set_active (GTK_COMBO_BOX (w1), 1);
+            gtk_notebook_set_current_page(GTK_NOTEBOOK(w2), 1);
 			}
 		else	{
-	        	gtk_option_menu_set_history (GTK_OPTION_MENU (w1), 0);
-			gtk_notebook_set_page(GTK_NOTEBOOK(w2), 0);
+                gtk_combo_box_set_active (GTK_COMBO_BOX (w1), 0);
+            gtk_notebook_set_current_page(GTK_NOTEBOOK(w2), 0);
 			}
 	}
 	else if (x == 18) {
-	        gtk_option_menu_set_history (GTK_OPTION_MENU (w1), 2);
-		gtk_notebook_set_page(GTK_NOTEBOOK(w2), 0);
+            gtk_combo_box_set_active (GTK_COMBO_BOX (w1), 2);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(w2), 0);
 		}
 	else if (x == 22) {
-	        gtk_option_menu_set_history (GTK_OPTION_MENU (w1), 3);
-		gtk_notebook_set_page(GTK_NOTEBOOK(w2), 0);
+            gtk_combo_box_set_active (GTK_COMBO_BOX (w1), 3);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(w2), 0);
 		}
 	else if (x == 34) {
-	        gtk_option_menu_set_history (GTK_OPTION_MENU (w1), 4);
-		gtk_notebook_set_page(GTK_NOTEBOOK(w2), 2);
+            gtk_combo_box_set_active (GTK_COMBO_BOX (w1), 4);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(w2), 2);
 		}
 	else if (x == 23) {
-	        gtk_option_menu_set_history (GTK_OPTION_MENU (w1), 5);
-		gtk_notebook_set_page(GTK_NOTEBOOK(w2), 0);
+            gtk_combo_box_set_active (GTK_COMBO_BOX (w1), 5);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(w2), 0);
 		}
 	else	{
-	        gtk_option_menu_set_history (GTK_OPTION_MENU (w1), 6);
-		gtk_notebook_set_page(GTK_NOTEBOOK(w2), 0);
+            gtk_combo_box_set_active (GTK_COMBO_BOX (w1), 6);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(w2), 0);
 		}
 
 	inspar(button, "entry167", ptrf, 2);
@@ -1148,19 +1148,19 @@ int icmp_header(GtkButton *button, int whocalled) {
 
 	w1 = lookup_widget(GTK_WIDGET(button), "optionmenu4");
 	if (x == 0)
-	        gtk_option_menu_set_history (GTK_OPTION_MENU (w1), 0);
+            gtk_combo_box_set_active (GTK_COMBO_BOX (w1), 0);
 	else if (x == 3) 
-	        gtk_option_menu_set_history (GTK_OPTION_MENU (w1), 1);
+            gtk_combo_box_set_active (GTK_COMBO_BOX (w1), 1);
 	else if (x == 8) 
-	        gtk_option_menu_set_history (GTK_OPTION_MENU (w1), 2);
+            gtk_combo_box_set_active (GTK_COMBO_BOX (w1), 2);
 	else
-	        gtk_option_menu_set_history (GTK_OPTION_MENU (w1), 3);
+            gtk_combo_box_set_active (GTK_COMBO_BOX (w1), 3);
 
 
 	if (x == 0) { /* echo reply */
 		/* insert code, checksum, identifier and seq number and data if there is some */
 		w1 = lookup_widget(GTK_WIDGET(button), "notebook5");
-		gtk_notebook_set_page(GTK_NOTEBOOK(w1), 0);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(w1), 0);
 		inspar(button, "entry62", ptrf, 2);
 		//inspar(button, "entry63", ptrf, 4);
 		ptrf = ptrf + 4;
@@ -1185,7 +1185,7 @@ int icmp_header(GtkButton *button, int whocalled) {
 	}
 	else if (x == 3) { /* destination unreacheable */
 		w1 = lookup_widget(GTK_WIDGET(button), "notebook5");
-		gtk_notebook_set_page(GTK_NOTEBOOK(w1), 2);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(w1), 2);
 		/* which code? */
 		x = char2x(ptrf);
 		/* insert code */
@@ -1193,9 +1193,9 @@ int icmp_header(GtkButton *button, int whocalled) {
 
 		w1 = lookup_widget(GTK_WIDGET(button), "optionmenu5");
 		if ( (x >= 0) && (x <= 15) )
-			gtk_option_menu_set_history (GTK_OPTION_MENU (w1), x);
+            gtk_combo_box_set_active (GTK_COMBO_BOX (w1), x);
 		else
-			gtk_option_menu_set_history (GTK_OPTION_MENU (w1), 16);
+            gtk_combo_box_set_active (GTK_COMBO_BOX (w1), 16);
 		
 		/* insert code, checksum, identifier and seq number and data if there is some */
 		//inspar(button, "entry59", ptrf, 4);
@@ -1220,7 +1220,7 @@ int icmp_header(GtkButton *button, int whocalled) {
 	}
 	else if (x == 8) { /* echo request */
 		w1 = lookup_widget(GTK_WIDGET(button), "notebook5");
-		gtk_notebook_set_page(GTK_NOTEBOOK(w1), 5);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(w1), 5);
 		/* insert code, checksum, identifier and seq number and data if there is some */
 		inspar(button, "entry74", ptrf, 2);
 		//inspar(button, "entry77", ptrf, 4);
@@ -1246,7 +1246,7 @@ int icmp_header(GtkButton *button, int whocalled) {
 	}
 	else { /* all the rest */
 		w1 = lookup_widget(GTK_WIDGET(button), "notebook5");
-		gtk_notebook_set_page(GTK_NOTEBOOK(w1), 1);
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(w1), 1);
 		/* insert code, checksum and data if there is some */
 		inspar(button, "entry157", ptrf, 2);
 		//inspar(button, "entry158", ptrf, 4);
@@ -1686,7 +1686,7 @@ int ethernet_8023(GtkButton *button, int whocalled) {
 
 	//w2 = lookup_widget(GTK_WIDGET(button), "frame7");
 	//gtk_widget_set_sensitive (w2, TRUE);
-	//gtk_notebook_set_page(GTK_NOTEBOOK(w3), 1);
+    //gtk_notebook_set_current_page(GTK_NOTEBOOK(w3), 1);
 
 	w1 = lookup_widget(GTK_WIDGET(button), "entry5");
 	//inspar(button, "entry5", ptrf, 4);

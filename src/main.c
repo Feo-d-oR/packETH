@@ -43,8 +43,8 @@ main (int argc, char *argv[])
 
   builder = gtk_builder_new();
   gtk_builder_add_from_file (builder, "../packet_gen.glade", NULL);
-  add_pixmap_directory (PKGDATADIR"/pixmaps");
-//  add_pixmap_directory ("pixmaps");
+//  add_pixmap_directory (PKGDATADIR"/pixmaps");
+  add_pixmap_directory ("pixmaps");
 
   /*
    * The following code was added by Glade to create one of each component
