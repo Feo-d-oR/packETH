@@ -1273,13 +1273,11 @@ void
 on_L_optmenu1_bt_clicked               (GtkButton       *button,
                                         gpointer         user_data)
 {
-    GtkComboBox *option_menu;
     GtkWidget   *option_value;
-	gint active_index;
+    gint active_index;
 
-    option_menu = GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "L_optmenu1_bt"));
     option_value = lookup_widget (GTK_WIDGET (button), "L_ethtype");
-    active_index = gtk_combo_box_get_active (option_menu);
+    active_index = gtk_combo_box_get_active (GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "L_optmenu1_bt")) );
 
     gtk_editable_set_editable(GTK_EDITABLE(option_value), FALSE);
     switch( active_index ) {
@@ -1308,13 +1306,11 @@ void
 on_optionmenu6_clicked               (GtkButton       *button,
                                         gpointer         user_data)
 {
-    GtkComboBox *option_menu;
     GtkWidget   *option_value;
     gint active_index;
 
-    option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu6");
     option_value = lookup_widget (GTK_WIDGET (button), "L_pid");
-    active_index = gtk_combo_box_get_active (option_menu);
+    active_index = gtk_combo_box_get_active ( GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "optionmenu6")) );
 
     gtk_editable_set_editable(GTK_EDITABLE(option_value), FALSE);
     switch( active_index ) {
@@ -1640,13 +1636,11 @@ void
 on_optionmenu3_clicked                 (GtkButton       *button,
                                         gpointer         user_data)
 {
-    GtkComboBox *option_menu;
     GtkWidget   *option_value;
-    gint active_index;
+    gint        active_index;
 
-    option_menu = GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "optionmenu3"));
     option_value = lookup_widget (GTK_WIDGET (button), "entry34");
-    active_index = gtk_combo_box_get_active (option_menu);
+    active_index = gtk_combo_box_get_active (GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "optionmenu3")));
 
     gtk_editable_set_editable(GTK_EDITABLE(option_value), FALSE);
     switch( active_index ) {
@@ -1756,16 +1750,14 @@ void
 on_optionmenu4_clicked                 (GtkButton       *button,
                                         gpointer         user_data)
 {
-    GtkComboBox *option_menu;
     GtkEntry    *option_value;
     GtkNotebook *notebook;
     gint        active_index;
 
-    option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu4");
-    option_value = lookup_widget (GTK_WIDGET (button), "entry57");
-    notebook = lookup_widget (GTK_WIDGET (button), "notebook5");
+    option_value = GTK_ENTRY(lookup_widget (GTK_WIDGET (button), "entry57"));
+    notebook = GTK_NOTEBOOK(lookup_widget (GTK_WIDGET (button), "notebook5"));
 
-    active_index = gtk_combo_box_get_active (option_menu);
+    active_index = gtk_combo_box_get_active (GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "optionmenu4")) );
 
     gtk_editable_set_editable(GTK_EDITABLE(option_value), FALSE);
     switch( active_index ) {
@@ -1814,13 +1806,11 @@ void
 on_optionmenu5_clicked                 (GtkButton       *button,
                                         gpointer         user_data)
 {
-        GtkComboBox *option_menu;
         GtkWidget   *option_value;
         gint active_index;
 
-        option_menu = lookup_widget (GTK_WIDGET (button), "optionmenu5");
         option_value = lookup_widget (GTK_WIDGET (button), "entry58");
-        active_index = gtk_combo_box_get_active (option_menu);
+        active_index = gtk_combo_box_get_active ( GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "optionmenu5")) );
 
         gtk_editable_set_editable(GTK_EDITABLE(option_value), FALSE);
         switch( active_index ) {
@@ -2398,7 +2388,6 @@ on_rtp_apply_button_clicked            (GtkButton       *button,
                                         gpointer         user_data)
 {
         GtkWidget *freq_entry, *alaw_bt, /**ulaw_bt,*/ *length_entry, /**apply_bt,*/ *payload_entry;
-        GtkComboBox *amp;
 	gint amp_index;
 	gchar *freq_entry_t, *length_entry_t;
 	int length, frequency;
@@ -2409,14 +2398,13 @@ on_rtp_apply_button_clicked            (GtkButton       *button,
 	alaw_bt= lookup_widget(GTK_WIDGET(button), "radiobutton33");
 	//ulaw_bt = lookup_widget(GTK_WIDGET(button), "radiobutton32");
 	//apply_bt = lookup_widget(GTK_WIDGET(button), "rtp_apply_button");
-	amp = lookup_widget(GTK_WIDGET(button), "optionmenu12");
 
 	freq_entry_t = (char *)gtk_entry_get_text(GTK_ENTRY(freq_entry));
 	length_entry_t = (char *)gtk_entry_get_text(GTK_ENTRY(length_entry));
 
 	
 	/* next we need the amplitude */
-        amp_index = gtk_combo_box_get_active (amp);
+        amp_index = gtk_combo_box_get_active ( GTK_COMBO_BOX(lookup_widget(GTK_WIDGET(button), "optionmenu12")) );
 
 	/* frequency; there can be rubbish in this field */
         if (check_digit(freq_entry_t, strlen(freq_entry_t),
@@ -3112,7 +3100,6 @@ on_button76_clicked                    (GtkButton       *button,
 {
         GtkWidget *tbt1, *w2, *w3, *w4, *w5, *en1;
 
-        GtkComboBox *tos_combo;
         gint         tos_value;
 
 	gchar *en_t;
@@ -3121,14 +3108,13 @@ on_button76_clicked                    (GtkButton       *button,
         tbt1 = lookup_widget(GTK_WIDGET(button), "radiobutton38");
 
     if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(tbt1)) ) {
-                tos_combo = lookup_widget(GTK_WIDGET(button), "optionmenu13");
 		w2 = lookup_widget(GTK_WIDGET(button), "radiobutton48");
 		w3 = lookup_widget(GTK_WIDGET(button), "radiobutton50");
 		w4 = lookup_widget(GTK_WIDGET(button), "radiobutton52");
 		w5 = lookup_widget(GTK_WIDGET(button), "radiobutton54");
 
 
-        tos_value = gtk_combo_box_get_active (tos_combo) << 5;
+        tos_value = gtk_combo_box_get_active ( GTK_COMBO_BOX(lookup_widget(GTK_WIDGET(button), "optionmenu13")) ) << 5;
 
 
         if ( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(w2)) )
@@ -3303,14 +3289,12 @@ void
 on_optionmenu14_clicked                (GtkButton       *button,
                                         gpointer         user_data)
 {
-        GtkComboBox *combo;
         gint         index;
         GtkWidget   *en;
 
-        combo = lookup_widget (GTK_WIDGET (button), "optionmenu14");
 	en = lookup_widget (GTK_WIDGET (button), "entry161");
 
-        index = gtk_combo_box_get_active(combo);
+        index = gtk_combo_box_get_active( GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "optionmenu14")) );
 
         if ((index == 0) || (index == 3) || (index == 4) || (index == 5))
 		gtk_widget_set_sensitive (en, FALSE);
@@ -3324,14 +3308,12 @@ void
 on_optionmenu15_clicked                (GtkButton       *button,
                                         gpointer         user_data)
 {
-        GtkComboBox *combo;
         gint         index;
         GtkWidget   *en;
 
-        combo = lookup_widget (GTK_WIDGET (button), "optionmenu15");
 	en = lookup_widget (GTK_WIDGET (button), "entry163");
 	
-        index = gtk_combo_box_get_active(combo);
+        index = gtk_combo_box_get_active( GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "optionmenu15")) );
 
         if ((index == 0) || (index == 3) || (index == 4) || (index == 5))
 		gtk_widget_set_sensitive (en, FALSE);
@@ -3540,16 +3522,14 @@ void
 on_igmpmessage_type_clicked            (GtkButton       *button,
                                         gpointer         user_data)
 {
-        GtkComboBox *range;
         GtkEntry    *value;
         GtkNotebook *target;
 
         gint         index;
 
-        range = lookup_widget (GTK_WIDGET (button), "optionmenu20");
-        value = lookup_widget (GTK_WIDGET (button), "entry166");
-        target = lookup_widget (GTK_WIDGET (button), "notebook8");
-        index = gtk_combo_box_get_active(range);
+        value = GTK_ENTRY( lookup_widget (GTK_WIDGET (button), "entry166") );
+        target = GTK_NOTEBOOK( lookup_widget (GTK_WIDGET (button), "notebook8") );
+        index = gtk_combo_box_get_active( GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "optionmenu20")) );
 
         gtk_editable_set_editable(GTK_EDITABLE(value), FALSE);
         switch (index) {
@@ -3756,6 +3736,19 @@ on_clist2_select_row                   (GtkTreeView     *clist,
 	 * and convert to int, and pass to load_packet_disector() */
 	memset(tmp, 0, 5);
 	gtk_clist_get_text(GTK_CLIST(clist), row, 3, &text);
+/*
+        gchar *textview_get_full_text (GtkTextView *view)
+        {
+            GtkTextBuffer *tbuf;
+            GtkTextIter start, end;
+
+            tbuf = gtk_text_view_get_buffer(view);
+            gtk_text_buffer_get_start_iter(tbuf, &start);
+            gtk_text_buffer_get_end_iter(tbuf, &end);
+
+            return gtk_text_buffer_get_text(tbuf, &start, &end, FALSE);
+        }
+*/
 	memccpy(tmp, text, 32, 4);
 	length = strtol(tmp, (char **)NULL, 10);
 
@@ -4882,16 +4875,14 @@ void
 on_optionmenu23_clicked                (GtkButton       *button,
                                         gpointer         user_data)
 {
-        GtkComboBox *option;
 	gint active_index;
         GtkWidget *mask, *hbox1, *hbox2;
 
-        option = lookup_widget (GTK_WIDGET (button), "optionmenu23");
 	hbox1 = lookup_widget (GTK_WIDGET (button), "hbox117");
 	hbox2 = lookup_widget (GTK_WIDGET (button), "hbox118");
 	mask = lookup_widget (GTK_WIDGET (button), "hbox1506");
 	
-        active_index = gtk_combo_box_get_active(option);
+        active_index = gtk_combo_box_get_active( GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "optionmenu23")) );
 
 	if (active_index == 4) {
 		gtk_widget_set_sensitive (hbox1, FALSE);
@@ -4919,13 +4910,11 @@ void
 on_optionmenu7_clicked               (GtkButton       *button,
                                         gpointer         user_data)
 {
-        GtkComboBox *option;
         GtkEntry    *value;
         gint         index;
 
-        option = lookup_widget (GTK_WIDGET (button), "optionmenu7");
-        value = lookup_widget (GTK_WIDGET (button), "entry102");
-        index = gtk_combo_box_get_active(option);
+        value = GTK_ENTRY( lookup_widget (GTK_WIDGET (button), "entry102") );
+        index = gtk_combo_box_get_active( GTK_COMBO_BOX(lookup_widget (GTK_WIDGET (button), "optionmenu7")) );
 
         gtk_editable_set_editable(GTK_EDITABLE(value), FALSE);
         switch (index) {

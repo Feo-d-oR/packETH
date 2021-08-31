@@ -94,7 +94,7 @@ Author: 2003 - 2021 Miha Jemec <jemcek@gmail.com>
                 <property name="can-focus">False</property>
                 <property name="xpad">0</property>
                 <property name="ypad">0</property>
-                <property name="label" translatable="yes">packETH - 2.2</property>
+                <property name="label" translatable="yes">packETH - 3.0</property>
                 <property name="justify">center</property>
                 <property name="xalign">0.5</property>
                 <property name="yalign">0.5</property>
@@ -2448,6 +2448,9 @@ http://packeth.sourceforge.net/</property>
                           <placeholder/>
                         </child>
                         <child>
+                          <placeholder/>
+                        </child>
+                        <child>
                           <object class="GtkHBox" id="hbox93">
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
@@ -2536,6 +2539,9 @@ http://packeth.sourceforge.net/</property>
                             <property name="x-options">GTK_FILL</property>
                             <property name="y-options">GTK_FILL</property>
                           </packing>
+                        </child>
+                        <child>
+                          <placeholder/>
                         </child>
                         <child>
                           <placeholder/>
